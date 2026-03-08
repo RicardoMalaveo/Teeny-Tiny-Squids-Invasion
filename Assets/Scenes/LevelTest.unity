@@ -1564,7 +1564,7 @@ GameObject:
   - component: {fileID: 79169556}
   m_Layer: 0
   m_Name: SandBorderTile (18)
-  m_TagString: Untagged
+  m_TagString: Hexagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4302,6 +4302,7 @@ GameObject:
   - component: {fileID: 167887787}
   - component: {fileID: 167887786}
   - component: {fileID: 167887785}
+  - component: {fileID: 167887788}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4376,13 +4377,57 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167887784}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: -7.32, y: 28.2, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
+--- !u!114 &167887788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167887784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!43 &183261329
 Mesh:
   m_ObjectHideFlags: 0
@@ -6764,7 +6809,7 @@ GameObject:
   - component: {fileID: 261518631}
   m_Layer: 0
   m_Name: SandBorderTile (17)
-  m_TagString: Untagged
+  m_TagString: Hexagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10718,7 +10763,7 @@ GameObject:
   - component: {fileID: 330909356}
   m_Layer: 0
   m_Name: SandBorderTile (28)
-  m_TagString: Untagged
+  m_TagString: Hexagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12250,7 +12295,7 @@ GameObject:
   - component: {fileID: 365166891}
   m_Layer: 0
   m_Name: SandBorderTile (29)
-  m_TagString: Untagged
+  m_TagString: Hexagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14818,6 +14863,53 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &421219787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 421219789}
+  - component: {fileID: 421219788}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &421219788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421219787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9773903b32a96141b229c52416a749b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HexInteraction
+  mainCamera: {fileID: 167887786}
+  towerPrefab: {fileID: 169538367399367673, guid: cb0442a0d48621b4f8c193910ed8953f, type: 3}
+  highlightMaterial: {fileID: 2100000, guid: 2ac534254534665469045acddec87372, type: 2}
+--- !u!4 &421219789
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421219787}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.04978, y: 0.5, z: -0.91584}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &423133138
 Mesh:
   m_ObjectHideFlags: 0
@@ -26629,7 +26721,7 @@ GameObject:
   - component: {fileID: 680000594}
   m_Layer: 0
   m_Name: SandBorderTile (22)
-  m_TagString: Untagged
+  m_TagString: Hexagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37236,7 +37328,7 @@ GameObject:
   - component: {fileID: 1027709822}
   m_Layer: 0
   m_Name: SandBorderTile (15)
-  m_TagString: Untagged
+  m_TagString: Hexagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40497,7 +40589,7 @@ GameObject:
   - component: {fileID: 1127200766}
   m_Layer: 0
   m_Name: SandBorderTile (21)
-  m_TagString: Untagged
+  m_TagString: Hexagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43062,7 +43154,7 @@ GameObject:
   - component: {fileID: 1184282720}
   m_Layer: 0
   m_Name: SandBorderTile (86)
-  m_TagString: Untagged
+  m_TagString: Hexagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44864,7 +44956,7 @@ GameObject:
   - component: {fileID: 1302737911}
   m_Layer: 0
   m_Name: SandBorderTile (48)
-  m_TagString: Untagged
+  m_TagString: Hexagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54114,7 +54206,7 @@ GameObject:
   - component: {fileID: 1544561582}
   m_Layer: 0
   m_Name: SandBorderTile (26)
-  m_TagString: Untagged
+  m_TagString: Hexagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73550,7 +73642,7 @@ GameObject:
   - component: {fileID: 1993662820}
   m_Layer: 0
   m_Name: SandBorderTile (16)
-  m_TagString: Untagged
+  m_TagString: Hexagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76436,7 +76528,7 @@ GameObject:
   - component: {fileID: 2031301664}
   m_Layer: 0
   m_Name: SandBorderTile (24)
-  m_TagString: Untagged
+  m_TagString: Hexagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81510,6 +81602,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SandBorderTile
       objectReference: {fileID: 0}
+    - target: {fileID: 459354371025939088, guid: 53ef72fe1ddccb843b4f408940605854, type: 3}
+      propertyPath: m_TagString
+      value: Hexagon
+      objectReference: {fileID: 0}
     - target: {fileID: 1375750216827490256, guid: 53ef72fe1ddccb843b4f408940605854, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -82194,7 +82290,7 @@ GameObject:
   - component: {fileID: 3371183695625978733}
   m_Layer: 0
   m_Name: SandBorderTile (7)
-  m_TagString: Untagged
+  m_TagString: Hexagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82388,7 +82484,7 @@ GameObject:
   - component: {fileID: 7076135163299990933}
   m_Layer: 0
   m_Name: SandBorderTile (13)
-  m_TagString: Untagged
+  m_TagString: Hexagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82701,7 +82797,7 @@ GameObject:
   - component: {fileID: 4198722696098629974}
   m_Layer: 0
   m_Name: SandBorderTile (4)
-  m_TagString: Untagged
+  m_TagString: Hexagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85744,7 +85840,7 @@ GameObject:
   - component: {fileID: 8479956221492425526}
   m_Layer: 0
   m_Name: SandBorderTile (3)
-  m_TagString: Untagged
+  m_TagString: Hexagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85780,7 +85876,7 @@ GameObject:
   - component: {fileID: 3203614240948322862}
   m_Layer: 0
   m_Name: SandBorderTile (11)
-  m_TagString: Untagged
+  m_TagString: Hexagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85999,7 +86095,7 @@ GameObject:
   - component: {fileID: 2643891082901602557}
   m_Layer: 0
   m_Name: SandBorderTile (10)
-  m_TagString: Untagged
+  m_TagString: Hexagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87123,7 +87219,7 @@ GameObject:
   - component: {fileID: 8491228463300169705}
   m_Layer: 0
   m_Name: SandBorderTile (9)
-  m_TagString: Untagged
+  m_TagString: Hexagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89701,7 +89797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2139802533991249445, guid: cb0442a0d48621b4f8c193910ed8953f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.1961527
+      value: -30.62
       objectReference: {fileID: 0}
     - target: {fileID: 2139802533991249445, guid: cb0442a0d48621b4f8c193910ed8953f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -92041,7 +92137,7 @@ GameObject:
   - component: {fileID: 5397857190878237844}
   m_Layer: 0
   m_Name: SandBorderTile (12)
-  m_TagString: Untagged
+  m_TagString: Hexagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93154,7 +93250,7 @@ GameObject:
   - component: {fileID: 2484525258245912714}
   m_Layer: 0
   m_Name: SandBorderTile (8)
-  m_TagString: Untagged
+  m_TagString: Hexagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94286,3 +94382,4 @@ SceneRoots:
   - {fileID: 422845868162696714}
   - {fileID: 1722935630}
   - {fileID: 1267509160}
+  - {fileID: 421219789}
