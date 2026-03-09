@@ -19,9 +19,8 @@ public class HexInteraction : MonoBehaviour
     void HandleHover()
     {
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out RaycastHit hit))
         {
             if (hit.collider.CompareTag("Hexagon"))
             {
