@@ -12,22 +12,21 @@ public class GameSceneManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else if (Instance != this)
+        else
         {
             Destroy(gameObject);
-            return;
         }
     }
-
-    public void LoadMainMenu()
+    public void LoadScene(string name)
     {
-        // Ahora no hay conflicto: SceneController (tú) vs SceneManager (Unity)
-        SceneManager.LoadScene(1);
-    }
-    public void LoadInitialScene()
-    {
-        // Ahora no hay conflicto: SceneController (tú) vs SceneManager (Unity)
-        SceneManager.LoadScene(0);
+        if (!string.IsNullOrEmpty(name))
+        {
+            SceneManager.LoadScene(name);
+        }
+        else
+        {
+            Debug.LogWarning("No scene name selected");
+        }
     }
 
     public void QuitGame()
