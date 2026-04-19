@@ -2,44 +2,51 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private aiMovementManager AIM;
-    private Rigidbody rb;
-    private float rotationInput;
-    public float walkSpeed = 20F;
-    private float rotationSpeed = 100F;
-    public string enemyName = "Squid Juan";
+    private EnemyWayPoints path;
+    private int waypointIndex = 0;
+    private EnemyInfo info;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        getIM();
+        info = GetComponent<EnemyInfo>();
+        path = Object.FindFirstObjectByType<EnemyWayPoints>();
     }
 
-    private void FixedUpdate()
+    void Update()
     {
-        Acceleration();
-        RotateEnemy();
+        if (path == null || waypointIndex >= path.nodes.Count) return;
+
+       MovementToWayPoint();
     }
 
-    public void Acceleration()
+    private void MovementToWayPoint()
     {
-
+        Vector3 targetPosition = path.nodes[waypointIndex].position;
+        Vector3 direction = targetPosition - transform.position;
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
+        float movementSpeed = info.moveSpeed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, movementSpeed);
+        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+        {
+            SwitchToNextWayPoint();
+        }
     }
 
-    public void RotateEnemy()
+    private void SwitchToNextWayPoint()
     {
-        //Enemy rotation
-        rotationInput = AIM.horizontal;
-
-        float rotation = rotationInput * rotationSpeed * Time.fixedDeltaTime;
-
-        Quaternion turnRotation = Quaternion.Euler(0.0f, rotation, 0.0f);
-
-        rb.MoveRotation(rb.rotation * turnRotation);
+        if (waypointIndex < path.nodes.Count - 1)
+        {
+            waypointIndex++;
+        }
+        else
+        {
+            ReachedLastWayPoint();
+        }
     }
 
-    private void getIM()
+    private void ReachedLastWayPoint()
     {
-        AIM = GetComponent<aiMovementManager>();
+        Destroy(gameObject);
     }
 }
