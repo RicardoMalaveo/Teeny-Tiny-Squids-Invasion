@@ -1,3 +1,4 @@
+using UnityEngine.UI;
 using UnityEngine;
 public enum HexState
 {
@@ -10,7 +11,9 @@ public class HexCell : MonoBehaviour
     public bool hasTower = false;
     public bool isHighlighted;
     public GameObject currentTower;
-
+    private GameObject spawnedMenu;
+    [Header("UI Interaction")]
+    public GameObject hexCellBuildMenuPrefab; 
     [SerializeField] private SpriteRenderer sprite1;
     [SerializeField] private SpriteRenderer sprite2;
 
@@ -23,6 +26,30 @@ public class HexCell : MonoBehaviour
     {
         ChangeHexCellColors();
     }
+
+    public void ShowBuildingMenu()
+    {
+        if (spawnedMenu == null && !hasTower)
+        {
+            Vector3 uiPos = transform.position + Vector3.up * 0.1f;
+            Vector3 dirToCamera = (Camera.main.transform.position - uiPos).normalized;
+            uiPos += dirToCamera * 0.5f;
+            spawnedMenu = Instantiate(hexCellBuildMenuPrefab, uiPos, Quaternion.identity);
+            spawnedMenu.transform.LookAt(spawnedMenu.transform.position + Camera.main.transform.forward);
+
+
+            BuildingTowerButtons(spawnedMenu);
+        }
+    }
+
+    public void HideBuildingMenu()
+    {
+        if (spawnedMenu != null)
+        {
+            Destroy(spawnedMenu);
+        }
+    }
+
     public void UpdateHexCellState(HexState newState)
     {
         state = newState;
@@ -59,5 +86,24 @@ public class HexCell : MonoBehaviour
 
         sprite1.color = targetColor;
         sprite2.color = targetColor;
+    }
+
+    private void BuildingTowerButtons(GameObject menu)
+    {
+        Button[] buttons = menu.GetComponentsInChildren<Button>();
+
+        if (buttons.Length >= 1)
+        {
+            buttons[0].onClick.AddListener(() => {
+                HexGridManager.Instance.BuildTowerFromUI(0, this);
+            });
+        }
+
+        if (buttons.Length >= 2)
+        {
+            buttons[1].onClick.AddListener(() => {
+                HexGridManager.Instance.BuildTowerFromUI(1, this);
+            });
+        }
     }
 }

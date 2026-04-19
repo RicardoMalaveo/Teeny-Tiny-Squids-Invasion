@@ -1,16 +1,33 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 
 public class HexGridManager : MonoBehaviour
 {
+    public static HexGridManager Instance;
     public Camera mCamera;
     [SerializeField] private LayerMask hexLayer;
     private HexCell lastHitHex;
     [SerializeField] private Transform hexGroup;
     [SerializeField] private List<HexCell> hexGroupList = new ();
-    public GameObject tower;
+    [Header("Tower Library")]
+    public List<TowerData> towerLibrary;
+    private int selectedTowerIndex = 0;
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        SyncList();
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.A)) 
@@ -39,12 +56,23 @@ public class HexGridManager : MonoBehaviour
         }
     }
 
+    public void BuildTowerFromUI(int towerIndex, HexCell targetHex)
+    {
+        selectedTowerIndex = towerIndex;
+
+        if (targetHex != null)
+        {
+            BuildTower(targetHex);
+            targetHex.HideBuildingMenu();
+        }
+    }
+
     private void BuildTower(HexCell hexCell)
     {
+        TowerData data = towerLibrary[selectedTowerIndex];
         hexCell.hasTower = true;
         Vector3 spawnPos = hexCell.transform.position;
-
-        hexCell.currentTower = Instantiate(tower, spawnPos, Quaternion.identity);
+        hexCell.currentTower = Instantiate(data.towerPrefab, spawnPos, Quaternion.identity);
         hexCell.ChangeHexCellColors();
     }
 
@@ -73,6 +101,12 @@ public class HexGridManager : MonoBehaviour
 
     void HandleHover()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+
+            return;
+        }
+
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (Physics.Raycast(ray, out RaycastHit hit, 100f, hexLayer))
         {
@@ -80,8 +114,12 @@ public class HexGridManager : MonoBehaviour
             {
                 if (currentHex.state == HexState.Active)
                 {
-                    ClearLastHex();
-                    HandleSelection(currentHex);
+                    if (currentHex != lastHitHex)
+                    {
+                        ClearLastHex();
+                        HandleSelection(currentHex);
+                    }
+
                     CLickToBuildOrRemove(currentHex);
                 }
                 else
@@ -100,10 +138,10 @@ public class HexGridManager : MonoBehaviour
 
     private void HandleSelection(HexCell newHex)
     {
-        if (lastHitHex == newHex) return;
-
         lastHitHex = newHex;
+
         lastHitHex.isHighlighted = true;
+        lastHitHex.ShowBuildingMenu();
         lastHitHex.ChangeHexCellColors();
     }
 
@@ -111,6 +149,7 @@ public class HexGridManager : MonoBehaviour
     {
         if (lastHitHex != null)
         {
+            lastHitHex.HideBuildingMenu();
             lastHitHex.isHighlighted = false;
             lastHitHex.ChangeHexCellColors();
             lastHitHex = null;

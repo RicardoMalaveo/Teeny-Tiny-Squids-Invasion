@@ -878,6 +878,7 @@ MonoBehaviour:
   hasTower: 0
   isHighlighted: 0
   currentTower: {fileID: 0}
+  hexCellBuildMenuPrefab: {fileID: 4308428355669263053, guid: a24bb920ef6f4c04eb0a60c5a333350a, type: 3}
   sprite1: {fileID: 537369282173572109}
   sprite2: {fileID: 6223880990251167898}
   active: {r: 0.46883842, g: 1, b: 0.1745283, a: 0.19607843}
