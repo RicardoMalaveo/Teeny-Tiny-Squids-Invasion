@@ -55,7 +55,6 @@ public class TowerBehaviour : MonoBehaviour
         Vector3 rotation = lookRotatio.eulerAngles;
         headOfTurret.rotation = Quaternion.Euler(0, rotation.y, 0);
 
-        //fire rate
         if (fireCountDown <= 0F)
         {
             Shoot();

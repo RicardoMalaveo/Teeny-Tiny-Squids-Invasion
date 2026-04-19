@@ -73712,7 +73712,7 @@ MonoBehaviour:
   - {fileID: 1092250583}
   - {fileID: 1752450237}
   - {fileID: 1354329020}
-  tower: {fileID: 6210902685308882898, guid: 9aa5d827f23165c41ab46b8b709e11fe, type: 3}
+  tower: {fileID: 3893056546256230262, guid: d121687eeb9e1964798d3183a9cfde96, type: 3}
 --- !u!4 &1889210852
 Transform:
   m_ObjectHideFlags: 0
