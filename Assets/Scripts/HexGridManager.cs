@@ -41,22 +41,8 @@ public class HexGridManager : MonoBehaviour
         }
         HandleHover();
     }
-    private void CLickToBuildOrRemove(HexCell hexCell)
-    {
-        if (Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            if (hexCell.state == HexState.Active && !hexCell.hasTower)
-            {
-                BuildTower(hexCell);
-            }
-            else
-            {
-                DestroyTower(hexCell);
-            }
-        }
-    }
 
-    public void BuildTowerFromUI(int towerIndex, HexCell targetHex)
+    public void BuildTowerSelected(int towerIndex, HexCell targetHex)
     {
         selectedTowerIndex = towerIndex;
 
@@ -71,20 +57,27 @@ public class HexGridManager : MonoBehaviour
     {
         TowerData data = towerLibrary[selectedTowerIndex];
         hexCell.hasTower = true;
+        hexCell.currentTowerData = data;
         Vector3 spawnPos = hexCell.transform.position;
         hexCell.currentTower = Instantiate(data.towerPrefab, spawnPos, Quaternion.identity);
         hexCell.ChangeHexCellColors();
     }
 
-    private void DestroyTower(HexCell hexCell)
+    public void SellTower(HexCell hexCell)
     {
-        if (hexCell.currentTower != null)
+        if (hexCell.currentTower != null && hexCell.currentTowerData != null)
         {
+            //int refund = Mathf.RoundToInt(hex.currentTowerData.cost * 0.5f);
+            //GameManager.Instance.AddSand(refund);
             Destroy(hexCell.currentTower);
             hexCell.currentTower = null;
+            hexCell.currentTowerData = null;
+            hexCell.hasTower = false;
+            hexCell.ChangeHexCellColors();
+            hexCell.HideBuildingMenu();
         }
 
-        hexCell.hasTower = false;
+        
     }
     public void RemoveAllTowers()
     {
@@ -92,7 +85,7 @@ public class HexGridManager : MonoBehaviour
         {
             if (hexGroupList[i] != null && hexGroupList[i].hasTower && hexGroupList[i].state == HexState.Active)
             {
-                DestroyTower(hexGroupList[i]);
+                SellTower(hexGroupList[i]);
                 hexGroupList[i].hasTower = false;
                 hexGroupList[i].ChangeHexCellColors();
             }
@@ -119,8 +112,6 @@ public class HexGridManager : MonoBehaviour
                         ClearLastHex();
                         HandleSelection(currentHex);
                     }
-
-                    CLickToBuildOrRemove(currentHex);
                 }
                 else
                 {

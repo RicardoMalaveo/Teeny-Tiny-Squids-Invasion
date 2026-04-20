@@ -11,9 +11,11 @@ public class HexCell : MonoBehaviour
     public bool hasTower = false;
     public bool isHighlighted;
     public GameObject currentTower;
+    public TowerData currentTowerData;
     private GameObject spawnedMenu;
     [Header("UI Interaction")]
-    public GameObject hexCellBuildMenuPrefab; 
+    public GameObject hexCellBuildTowerMenuPrefab;
+    public GameObject hexCellManageTowerMenuPrefab;
     [SerializeField] private SpriteRenderer sprite1;
     [SerializeField] private SpriteRenderer sprite2;
 
@@ -29,17 +31,24 @@ public class HexCell : MonoBehaviour
 
     public void ShowBuildingMenu()
     {
-        if (spawnedMenu == null && !hasTower)
+        if (spawnedMenu != null) return;
+
+        GameObject prefabToSpawn = hasTower ? hexCellManageTowerMenuPrefab : hexCellBuildTowerMenuPrefab;
+
+        Vector3 uiPos = transform.position + Vector3.up * 0.1f;
+        spawnedMenu = Instantiate(prefabToSpawn, uiPos, Quaternion.identity);
+
+        GameObject uiCamObj = GameObject.Find("UICamera");
+        if (uiCamObj != null)
         {
-            Vector3 uiPos = transform.position + Vector3.up * 0.1f;
-            Vector3 dirToCamera = (Camera.main.transform.position - uiPos).normalized;
-            uiPos += dirToCamera * 0.5f;
-            spawnedMenu = Instantiate(hexCellBuildMenuPrefab, uiPos, Quaternion.identity);
-            spawnedMenu.transform.LookAt(spawnedMenu.transform.position + Camera.main.transform.forward);
+            Camera uiCam = uiCamObj.GetComponent<Camera>();
+            Canvas canvas = spawnedMenu.GetComponent<Canvas>();
 
-
-            BuildingTowerButtons(spawnedMenu);
+            canvas.worldCamera = uiCam;
         }
+        spawnedMenu.transform.LookAt(spawnedMenu.transform.position + Camera.main.transform.forward);
+
+        BuildingTowerButtons(spawnedMenu);
     }
 
     public void HideBuildingMenu()
@@ -92,18 +101,24 @@ public class HexCell : MonoBehaviour
     {
         Button[] buttons = menu.GetComponentsInChildren<Button>();
 
-        if (buttons.Length >= 1)
+        if (!hasTower)
         {
-            buttons[0].onClick.AddListener(() => {
-                HexGridManager.Instance.BuildTowerFromUI(0, this);
-            });
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                int index = i;
+                buttons[i].onClick.AddListener(() => {
+                    HexGridManager.Instance.BuildTowerSelected(index, this);
+                });
+            }
         }
-
-        if (buttons.Length >= 2)
+        else
         {
-            buttons[1].onClick.AddListener(() => {
-                HexGridManager.Instance.BuildTowerFromUI(1, this);
-            });
+            if (buttons.Length > 0)
+            {
+                buttons[0].onClick.AddListener(() => {
+                    HexGridManager.Instance.SellTower(this);
+                });
+            }
         }
     }
 }

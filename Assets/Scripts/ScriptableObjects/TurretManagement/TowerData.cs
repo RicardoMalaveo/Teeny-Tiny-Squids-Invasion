@@ -7,4 +7,5 @@ public class TowerData : ScriptableObject
     public GameObject towerPrefab;
     public GameObject previewTowerPrefab;
     public int cost;
+    public int towerDamage;
 }

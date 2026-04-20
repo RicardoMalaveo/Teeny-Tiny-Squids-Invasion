@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1251864096544475772}
   - component: {fileID: 7017434793652056647}
   - component: {fileID: 4921351442848985324}
+  - component: {fileID: 3353660073401683265}
   m_Layer: 0
   m_Name: Calamar_Legionario
   m_TagString: Enemy
@@ -50,7 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyInfo
   enemyName: 'Calamar_Legionario '
   health: 10
-  moveSpeed: 3
+  moveSpeed: 4
   sandReward: 10
   dangerLevel: 1
 --- !u!54 &1251864096544475772
@@ -95,7 +96,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -113,6 +114,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43dfccdb3ee91a746a2143da2a264be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
+--- !u!114 &3353660073401683265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5620237594559025216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710526fc428c21d4a98ed26835017fcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDestinyHandler
 --- !u!1001 &159662880586614987
 PrefabInstance:
   m_ObjectHideFlags: 0

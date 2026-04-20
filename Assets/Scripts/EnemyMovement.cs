@@ -5,10 +5,12 @@ public class EnemyMovement : MonoBehaviour
     private EnemyWayPoints path;
     private int waypointIndex = 0;
     private EnemyInfo info;
+    private EnemyDestinyHandler enemyDestinyHandler;
 
     void Start()
     {
         info = GetComponent<EnemyInfo>();
+        enemyDestinyHandler = GetComponent<EnemyDestinyHandler>();
         path = Object.FindFirstObjectByType<EnemyWayPoints>();
     }
 
@@ -47,6 +49,9 @@ public class EnemyMovement : MonoBehaviour
 
     private void ReachedLastWayPoint()
     {
-        Destroy(gameObject);
+        if (enemyDestinyHandler != null)
+        {
+            enemyDestinyHandler.ReachCastle();
+        }
     }
 }

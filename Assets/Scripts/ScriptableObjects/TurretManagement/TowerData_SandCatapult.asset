@@ -16,3 +16,4 @@ MonoBehaviour:
   towerPrefab: {fileID: 2025932115243126701, guid: d69be2e31ccd3514cb76432d28e32771, type: 3}
   previewTowerPrefab: {fileID: 2025932115243126701, guid: d69be2e31ccd3514cb76432d28e32771, type: 3}
   cost: 20
+  towerDamage: 5

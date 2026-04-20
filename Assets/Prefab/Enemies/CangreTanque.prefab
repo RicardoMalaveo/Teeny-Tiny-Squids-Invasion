@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6939112692153892098}
   - component: {fileID: 5455825942283184415}
   - component: {fileID: -1390129800683669658}
+  - component: {fileID: 5014738403534854691}
   m_Layer: 0
   m_Name: CangreTanque
   m_TagString: Enemy
@@ -49,8 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyInfo
   enemyName: CangreTanque
-  health: 150
-  moveSpeed: 0.5
+  health: 300
+  moveSpeed: 1.5
   sandReward: 150
   dangerLevel: 7.5
 --- !u!65 &6939112692153892098
@@ -68,7 +69,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -113,6 +114,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43dfccdb3ee91a746a2143da2a264be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
+--- !u!114 &5014738403534854691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328599238559929102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710526fc428c21d4a98ed26835017fcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDestinyHandler
 --- !u!1 &2335080205564756043
 GameObject:
   m_ObjectHideFlags: 0

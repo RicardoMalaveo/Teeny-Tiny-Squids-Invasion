@@ -673,12 +673,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90335ff59c2e8349b8be4b1758da1bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerBehavior
-  range: 15
+  range: 16
   turretRotationSpeed: 10
   headOfTurret: {fileID: 2688731542735779842}
   projectilePrefab: {fileID: 7092026269231309156, guid: 1c40427f92d490944a71e49b9d052749, type: 3}
   bulletspawn: {fileID: 2636053139510199936}
-  fireRate: 1
+  fireRate: 4
+  towerData: {fileID: 11400000, guid: 2734859c808372a4ca55bf15aec1f3ce, type: 2}
 --- !u!1 &4513650928600208556
 GameObject:
   m_ObjectHideFlags: 0

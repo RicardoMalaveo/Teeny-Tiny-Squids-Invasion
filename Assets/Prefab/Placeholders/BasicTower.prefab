@@ -163,7 +163,8 @@ MonoBehaviour:
   headOfTurret: {fileID: 7419757614968284576}
   projectilePrefab: {fileID: 2437438681359900625, guid: d7acc1b097da37247862161cfcf11874, type: 3}
   bulletspawn: {fileID: 1676567092491664654}
-  fireRate: 1
+  fireRate: 2
+  towerData: {fileID: 11400000, guid: fbc626a8fff74ca43ba542a7c4b4e087, type: 2}
 --- !u!1 &3226176819348721485
 GameObject:
   m_ObjectHideFlags: 0

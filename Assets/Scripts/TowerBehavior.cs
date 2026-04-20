@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TowerBehavior : MonoBehaviour
 {
-    [Header("Turrent and Targeting settings")]
+    [Header("Turret and Targeting settings")]
     public float range = 15f;
     public float turretRotationSpeed = 10f;
     public Transform headOfTurret;
@@ -15,6 +15,7 @@ public class TowerBehavior : MonoBehaviour
     private float fireCountDown = 0f;
 
     private Transform target;
+    public TowerData towerData;
 
     private void Start()
     {
@@ -74,7 +75,18 @@ public class TowerBehavior : MonoBehaviour
 
     void Shoot()
     {
-        GameObject projectileGO = Instantiate(projectilePrefab, bulletspawn.position, bulletspawn.rotation);
-        projectileGO.SendMessage("SetTarget", target);
+        GameObject towerProjectile = Instantiate(projectilePrefab, bulletspawn.position, bulletspawn.rotation);
+
+
+        if (towerProjectile.TryGetComponent<BaseTurretBulletHandler>(out var baseTurretBulletHandler))
+        {
+            baseTurretBulletHandler.SetTarget(target);
+            baseTurretBulletHandler.SetDamage(towerData.towerDamage);
+        }
+        else if (towerProjectile.TryGetComponent<CatapultBulletHandler>(out var catapultBulletHandler))
+        {
+            catapultBulletHandler.SetTarget(target);
+            catapultBulletHandler.SetDamage(towerData.towerDamage);
+        }
     }
 }

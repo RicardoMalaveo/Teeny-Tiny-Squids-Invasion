@@ -14,7 +14,7 @@ TagManager:
   - Water
   - UI
   - HexLayer
-  - 
+  - UI
   - 
   - 
   - 
@@ -42,6 +42,15 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: New Layer 2
+    uniqueID: 2959909321
+    locked: 0
+  - name: New Layer 3
+    uniqueID: 3510910713
+    locked: 0
+  - name: ForegroundUI
+    uniqueID: 1207301121
     locked: 0
   m_RenderingLayers:
   - Default
