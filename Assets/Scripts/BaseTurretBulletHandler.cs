@@ -19,7 +19,10 @@ public class BaseTurretBulletHandler : MonoBehaviour
 
     void Update()
     {
-        if (target == null) { Destroy(gameObject); return; }
+        if (target == null) 
+        { 
+            Destroy(gameObject); return;
+        }
 
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         transform.LookAt(target.position);
