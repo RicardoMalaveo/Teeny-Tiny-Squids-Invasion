@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class NotAMoronicFuckingCameraMovementScript : MonoBehaviour
+public class CameraPivotMovement : MonoBehaviour
 {
-    [SerializeField] private Transform pitchPivot;
+    [SerializeField] private Transform xAxisPivot;
 
     [SerializeField] private float cameraMovementSpeed;
     [SerializeField] private Vector2 mapSizeLimit;
@@ -13,28 +13,27 @@ public class NotAMoronicFuckingCameraMovementScript : MonoBehaviour
     [SerializeField] private float maxPitch;
     [SerializeField] private float resetSpeed;
 
-    private float currentYaw = 0f;
-    private float currentPitch;
-
-    private Quaternion rootHomeRotation;
-    private Quaternion pitchHomeRotation;
+    private float currentYAxis = 0f;
+    private float CurrentXAxis;
+    private float OriginalXAxis;
+    private float OriginalYAxis;
 
     void Start()
     {
-        rootHomeRotation = transform.localRotation;
-        pitchHomeRotation = pitchPivot.localRotation;
+        OriginalYAxis = transform.localEulerAngles.y;
+        OriginalXAxis = xAxisPivot.localEulerAngles.x;
 
-        currentPitch = pitchPivot.localEulerAngles.x;
-        if (currentPitch > 180) currentPitch -= 360;
+        if (OriginalXAxis > 180) OriginalXAxis -= 360;
+        CurrentXAxis = OriginalXAxis;
     }
 
     void Update()
     {
-        HandleMovement();
-        HandleRotation();
+        CameraPivotTransform();
+        CameraPivotRotation();
     }
 
-    void HandleMovement()
+    void CameraPivotTransform()
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -54,24 +53,23 @@ public class NotAMoronicFuckingCameraMovementScript : MonoBehaviour
         );
     }
 
-    void HandleRotation()
+    void CameraPivotRotation()
     {
         if (Input.GetMouseButton(2) || Input.GetMouseButton(1))
         {
             float mouseX = Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
             float mouseY = -Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime;
 
-            currentYaw = Mathf.Clamp(currentYaw + mouseX, -horizontalRotationLimit, horizontalRotationLimit);
-            currentPitch = Mathf.Clamp(currentPitch + mouseY, minPitch, maxPitch);
+            currentYAxis = Mathf.Clamp(currentYAxis + mouseX, -horizontalRotationLimit, horizontalRotationLimit);
+            CurrentXAxis = Mathf.Clamp(CurrentXAxis + mouseY, minPitch, maxPitch);
         }
         else
         {
-            currentYaw = Mathf.Lerp(currentYaw, 0, Time.deltaTime * resetSpeed);
-            currentPitch = Mathf.Lerp(currentPitch, pitchHomeRotation.eulerAngles.x, Time.deltaTime * resetSpeed);
+            currentYAxis = 0;
+            CurrentXAxis = OriginalXAxis;
         }
 
-        transform.localRotation = rootHomeRotation * Quaternion.Euler(0, currentYaw, 0);
-
-        pitchPivot.localRotation = Quaternion.Euler(currentPitch, 0, 0);
+        transform.localRotation = Quaternion.Euler(0, OriginalYAxis + currentYAxis, 0);
+        xAxisPivot.localRotation = Quaternion.Euler(CurrentXAxis, 0, 0);
     }
 }
