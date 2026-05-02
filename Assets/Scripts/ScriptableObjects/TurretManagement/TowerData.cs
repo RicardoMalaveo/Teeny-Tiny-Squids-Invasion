@@ -6,6 +6,12 @@ public class TowerData : ScriptableObject
     public string towerName;
     public GameObject towerPrefab;
     public GameObject previewTowerPrefab;
+
     public int cost;
     public int towerDamage;
+    public float fireRate;
+    public float attackRange;
+    public float rotationSpeed;
+
+    public GameObject projectilePrefab;
 }

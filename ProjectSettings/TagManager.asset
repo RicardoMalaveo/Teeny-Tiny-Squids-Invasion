@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Hexagon
   - Enemy
-  - Terrain
   layers:
   - Default
   - TransparentFX
@@ -15,8 +14,8 @@ TagManager:
   - Water
   - UI
   - HexLayer
-  - UI
-  - Terrain
+  - 
+  - 
   - 
   - 
   - 

@@ -153,5 +153,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d36700ee04560341ba5fe1655043839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CatapultBulletHandler
+  speed: 30
   arcHeight: 5
-  speed: 1.5
