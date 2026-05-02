@@ -5,13 +5,19 @@ using UnityEngine.InputSystem;
 
 public class HexGridManager : MonoBehaviour
 {
+    public Camera uiCamera;
+    [SerializeField] private float floatingBuildingMenuHight;
+    [SerializeField] private GameObject hexBuildMenuPanel;
+    [SerializeField] private GameObject hexChangeMenu;
+
+
     public static HexGridManager Instance;
-    public Camera mCamera;
     [SerializeField] private LayerMask hexLayer;
     private HexCell lastHitHex;
     [SerializeField] private Transform hexGroup;
     [SerializeField] private List<HexCell> hexGroupList = new ();
-    [Header("Tower Library")]
+
+
     public List<TowerData> towerLibrary;
     private int selectedTowerIndex = 0;
 
@@ -44,12 +50,11 @@ public class HexGridManager : MonoBehaviour
 
     public void BuildTowerSelected(int towerIndex, HexCell targetHex)
     {
-        selectedTowerIndex = towerIndex;
+        TowerData data = towerLibrary[towerIndex];
 
-        if (targetHex != null)
+        if (GameManager.Instance.TryPurchase(data.cost))
         {
             BuildTower(targetHex);
-            targetHex.HideBuildingMenu();
         }
     }
 
@@ -65,19 +70,16 @@ public class HexGridManager : MonoBehaviour
 
     public void SellTower(HexCell hexCell)
     {
-        if (hexCell.currentTower != null && hexCell.currentTowerData != null)
-        {
-            //int refund = Mathf.RoundToInt(hex.currentTowerData.cost * 0.5f);
-            //GameManager.Instance.AddSand(refund);
-            Destroy(hexCell.currentTower);
-            hexCell.currentTower = null;
-            hexCell.currentTowerData = null;
-            hexCell.hasTower = false;
-            hexCell.ChangeHexCellColors();
-            hexCell.HideBuildingMenu();
-        }
+        float refundMultiplier = GameManager.Instance.refundPercentage;
+        int refundAmount = Mathf.RoundToInt(hexCell.currentTowerData.cost * refundMultiplier);
+        GameManager.Instance.AddSand(refundAmount);
+        Destroy(hexCell.currentTower);
 
-        
+        hexCell.currentTower = null;
+        hexCell.currentTowerData = null;
+        hexCell.hasTower = false;
+
+        hexCell.ChangeHexCellColors();
     }
     public void RemoveAllTowers()
     {
@@ -96,7 +98,6 @@ public class HexGridManager : MonoBehaviour
     {
         if (EventSystem.current.IsPointerOverGameObject())
         {
-
             return;
         }
 
@@ -110,29 +111,23 @@ public class HexGridManager : MonoBehaviour
                     if (currentHex != lastHitHex)
                     {
                         ClearLastHex();
-                        HandleSelection(currentHex);
+                        HexSelection(currentHex);
                     }
-                }
-                else
-                {
-                    ClearLastHex();
+                    return;
                 }
             }
         }
-        else
-        {
-            ClearLastHex();
-        }
+        ClearLastHex();
     }
 
 
 
-    private void HandleSelection(HexCell newHex)
+    private void HexSelection(HexCell newHex)
     {
         lastHitHex = newHex;
 
         lastHitHex.isHighlighted = true;
-        lastHitHex.ShowBuildingMenu();
+        FloatingBuildingMenu(lastHitHex);
         lastHitHex.ChangeHexCellColors();
     }
 
@@ -140,7 +135,7 @@ public class HexGridManager : MonoBehaviour
     {
         if (lastHitHex != null)
         {
-            lastHitHex.HideBuildingMenu();
+            HideBuildingMenu();
             lastHitHex.isHighlighted = false;
             lastHitHex.ChangeHexCellColors();
             lastHitHex = null;
@@ -166,6 +161,23 @@ public class HexGridManager : MonoBehaviour
         }
     }
 
+    private void FloatingBuildingMenu(HexCell cell)
+    {
+        hexBuildMenuPanel.SetActive(false);
+        hexChangeMenu.SetActive(false);
+        GameObject activePanel = cell.hasTower ? hexChangeMenu : hexBuildMenuPanel;
+        Vector3 screenPos = cell.transform.position + Vector3.up * floatingBuildingMenuHight;
+        activePanel.transform.position = screenPos;
+        activePanel.transform.LookAt(activePanel.transform.position + uiCamera.transform.forward);
+        activePanel.SetActive(true);
+    }
+
+
+    public void HideBuildingMenu()
+    {
+        hexBuildMenuPanel.SetActive(false);
+        hexChangeMenu.SetActive(false);
+    }
     private void OnValidate()
     {
         if (hexGroup != null)
@@ -178,5 +190,17 @@ public class HexGridManager : MonoBehaviour
         hexGroupList.Clear();
         HexCell[] found = hexGroup.GetComponentsInChildren<HexCell>();
         hexGroupList.AddRange(found);
+    }
+
+    public void OnBuildButtonPressed(int index)
+    {
+            BuildTowerSelected(index, lastHitHex);
+            ClearLastHex();
+    }
+
+    public void OnSellButtonPressed()
+    {
+            SellTower(lastHitHex);
+            ClearLastHex();
     }
 }

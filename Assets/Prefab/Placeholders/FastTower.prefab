@@ -617,6 +617,7 @@ GameObject:
   - component: {fileID: 7347844606273792257}
   - component: {fileID: 2625030655781400485}
   - component: {fileID: 1282115714133405291}
+  - component: {fileID: 1450091924759982380}
   m_Layer: 0
   m_Name: FastTower
   m_TagString: Untagged
@@ -673,13 +674,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90335ff59c2e8349b8be4b1758da1bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerBehavior
-  range: 16
-  turretRotationSpeed: 10
-  headOfTurret: {fileID: 2688731542735779842}
-  projectilePrefab: {fileID: 7092026269231309156, guid: 1c40427f92d490944a71e49b9d052749, type: 3}
-  bulletspawn: {fileID: 2636053139510199936}
-  fireRate: 4
   towerData: {fileID: 11400000, guid: 2734859c808372a4ca55bf15aec1f3ce, type: 2}
+  headOfTurret: {fileID: 2688731542735779842}
+  bulletSpawn: {fileID: 2636053139510199936}
+--- !u!135 &1450091924759982380
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3893056546256230262}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4513650928600208556
 GameObject:
   m_ObjectHideFlags: 0

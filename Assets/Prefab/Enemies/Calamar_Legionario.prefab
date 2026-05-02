@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 166983343819516373}
-  - component: {fileID: 6830906637314073708}
   - component: {fileID: 1251864096544475772}
   - component: {fileID: 7017434793652056647}
   - component: {fileID: 4921351442848985324}
@@ -30,30 +29,13 @@ Transform:
   m_GameObject: {fileID: 5620237594559025216}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 413634033463013152}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6830906637314073708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5620237594559025216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 535b99748decd074bbd4cbc98e4c4e17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyInfo
-  enemyName: 'Calamar_Legionario '
-  health: 10
-  moveSpeed: 4
-  sandReward: 10
-  dangerLevel: 1
 --- !u!54 &1251864096544475772
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710526fc428c21d4a98ed26835017fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDestinyHandler
+  data: {fileID: 11400000, guid: 4e502b2d9a4a12746a863ced6d2e8557, type: 2}
 --- !u!1001 &159662880586614987
 PrefabInstance:
   m_ObjectHideFlags: 0

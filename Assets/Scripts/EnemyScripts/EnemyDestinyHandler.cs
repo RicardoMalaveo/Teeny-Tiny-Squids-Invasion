@@ -2,21 +2,23 @@ using UnityEngine;
 
 public class EnemyDestinyHandler : MonoBehaviour
 {
-    private EnemyInfo info;
+    public EnemyInfo data;
     private bool isDead = false;
+    private float currentHealth;
 
     private void Awake()
     {
-        info = GetComponent<EnemyInfo>();
+        data = GetComponent<EnemyInfo>();
+        currentHealth = data.maxHealth;
     }
 
     public void ApplyDamage(float amount)
     {
         if (isDead) return;
 
-        info.health -= amount;
+        data.maxHealth -= amount;
 
-        if (info.health <= 0)
+        if (data.maxHealth <= 0)
         {
             HandleDeath(true);
         }
@@ -46,11 +48,9 @@ public class EnemyDestinyHandler : MonoBehaviour
             //{
             //    GameManager.Instance.AddResources(info.sandReward);
             //}
-            Debug.Log("Enemy die before reaching the castle");
         }
         else
         {
-            Debug.Log("Enemy reached the castle");
         }
 
         Destroy(gameObject);

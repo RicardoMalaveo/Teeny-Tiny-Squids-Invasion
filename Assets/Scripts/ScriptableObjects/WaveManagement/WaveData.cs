@@ -4,17 +4,24 @@ using UnityEngine;
 [System.Serializable]
 public class EnemySpawnGroup
 {
-    public GameObject enemyPrefab;
-    public int count;             
+    public EnemyInfo enemyType;
+    public int count;
+    public float intervalBetweenEnemies = 0.5f;
+
+    public float GetGroupCost() => enemyType.dangerLevel * count;
 }
 
 [CreateAssetMenu(fileName = "Wave_", menuName = "Spawner Wave Data")]
 public class WaveData : ScriptableObject
 {
-    [Header("Wave Composition")]
-    public List<EnemySpawnGroup> enemiesToSpawn;
+    public int waveNumber;
+    public List<EnemySpawnGroup> spawnGroups;
+    public float bonusPercentage;
 
-    [Header("Settings")]
-    public float timeBetweenSpawns = 1.0f;
-    public float delayBeforeNextGroup = 2.0f;
+    public float GetTotalWaveBudget()
+    {
+        float total = 0;
+        foreach (var group in spawnGroups) total += group.GetGroupCost();
+        return total;
+    }
 }
