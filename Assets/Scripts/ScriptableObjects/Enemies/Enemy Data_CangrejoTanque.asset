@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Enemy Data_CangrejoTanque
   m_EditorClassIdentifier: Assembly-CSharp::EnemyInfo
   enemyName: CangreTanque
-  maxHealth: 0
-  moveSpeed: 0
-  sandReward: 0
-  dangerLevel: 0
   enemyPrefab: {fileID: 328599238559929102, guid: f8c5c604c64f36045a178cd7fdda0c94, type: 3}
+  maxHealth: 0
+  moveSpeed: 0.5
+  dangerLevel: 0
+  isAerial: 0
+  isArmored: 1

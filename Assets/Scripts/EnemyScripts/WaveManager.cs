@@ -4,36 +4,79 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    public List<WaveData> allWaves;
-    private int currentWaveIndex = 0;
-    public Transform spawnPoint;
+    public static WaveManager Instance;
 
-    void Update()
+    [SerializeField] private List<WaveData> levelsWaves;
+    private int currentWaveIndex = 0;
+    [SerializeField] private List<Transform> groundSpawnPoints;
+    [SerializeField] private List<Transform> airSpawnPoints;
+    [SerializeField] private Transform castleTarget;
+
+    private int activeEnemiesCount = 0;
+
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Instance == null)
         {
-            StartNextWave();
+            Instance = this;
         }
     }
 
+    public void DecrementEnemyCount()
+    {
+        activeEnemiesCount--;
+    }
     public void StartNextWave()
     {
-            StartCoroutine(SpawnWaveRoutine(allWaves[currentWaveIndex]));
-            currentWaveIndex++;
+        if (currentWaveIndex >= levelsWaves.Count) return;
+        StartCoroutine(SpawnWaveRoutine(levelsWaves[currentWaveIndex]));
     }
 
-    IEnumerator SpawnWaveRoutine(WaveData wave)
+    private IEnumerator SpawnWaveRoutine(WaveData wave)
     {
-
-        foreach (EnemySpawnGroup group in wave.enemiesToSpawn)
+        int totalInWave = 0;
+        foreach (var group in wave.spawnGroups) totalInWave += group.count;
+        activeEnemiesCount = totalInWave;
+        foreach (var group in wave.spawnGroups)
         {
             for (int i = 0; i < group.count; i++)
             {
-                Instantiate(group.enemyPrefab, spawnPoint.position, Quaternion.identity);
-                yield return new WaitForSeconds(wave.timeBetweenSpawns);
+                SpawnEnemy(group.enemyType);
+                yield return new WaitForSeconds(group.intervalBetweenEnemies);
             }
-
-            yield return new WaitForSeconds(wave.delayBeforeNextGroup);
+            yield return new WaitForSeconds(wave.delayBetweenGroups); // Gap between squads
         }
+
+        yield return new WaitUntil(() => activeEnemiesCount <= 0);
+
+        EndWave(wave);
+    }
+
+    private void SpawnEnemy(EnemyInfo info)
+    {
+        List<Transform> points = info.isAerial ? airSpawnPoints : groundSpawnPoints;
+        Transform selectedPoint = points[Random.Range(0, points.Count)];
+
+        GameObject enemyGO = Instantiate(info.enemyPrefab, selectedPoint.position, selectedPoint.rotation);
+
+        if (enemyGO.TryGetComponent<EnemyDestinyHandler>(out var handler))
+        {
+            handler.Setup(info, castleTarget);
+        }
+
+        if (enemyGO.TryGetComponent<EnemyMovement>(out var mover))
+        {
+            mover.Initialize(info, castleTarget);
+        }
+    }
+
+    private void EndWave(WaveData wave)
+    {
+        float budget = wave.GetTotalWaveBudget();
+        int bonus = Mathf.RoundToInt(budget * wave.bonusPercentage);
+        GameManager.Instance.AddSand(bonus);
+
+        currentWaveIndex++;
+        GameManager.Instance.OnWaveExtinction();
     }
 }

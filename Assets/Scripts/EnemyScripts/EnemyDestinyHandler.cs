@@ -5,20 +5,22 @@ public class EnemyDestinyHandler : MonoBehaviour
     public EnemyInfo data;
     private bool isDead = false;
     private float currentHealth;
+    private Transform castleTarget;
 
-    private void Awake()
+    public void Setup(EnemyInfo info, Transform target)
     {
-        data = GetComponent<EnemyInfo>();
+        data = info;
         currentHealth = data.maxHealth;
+        castleTarget = target;
     }
 
     public void ApplyDamage(float amount)
     {
         if (isDead) return;
 
-        data.maxHealth -= amount;
+        currentHealth -= amount;
 
-        if (data.maxHealth <= 0)
+        if (currentHealth <= 0)
         {
             HandleDeath(true);
         }
@@ -28,11 +30,8 @@ public class EnemyDestinyHandler : MonoBehaviour
     {
         if (isDead) return;
 
-        ////castle damage
-        //if (GameManager.Instance != null)
-        //{
-        //    GameManager.Instance.TakeCastleDamage(1);
-        //}
+        int damage = Mathf.RoundToInt(data.dangerLevel);
+        //GameManager.Instance.TakeCastleDamage(damage);
 
         HandleDeath(false);
     }
@@ -44,15 +43,10 @@ public class EnemyDestinyHandler : MonoBehaviour
 
         if (killedByPlayer)
         {
-            //if (GameManager.Instance != null)
-            //{
-            //    GameManager.Instance.AddResources(info.sandReward);
-            //}
-        }
-        else
-        {
+            GameManager.Instance.AddSand(data.dangerLevel);
         }
 
+        WaveManager.Instance.DecrementEnemyCount();
         Destroy(gameObject);
     }
 }

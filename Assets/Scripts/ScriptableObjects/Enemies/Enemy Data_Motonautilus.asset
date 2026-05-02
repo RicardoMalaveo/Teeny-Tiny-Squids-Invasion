@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535b99748decd074bbd4cbc98e4c4e17, type: 3}
   m_Name: Enemy Data_Motonautilus
   m_EditorClassIdentifier: Assembly-CSharp::EnemyInfo
-  enemyName: 
-  maxHealth: 0
-  moveSpeed: 0
-  sandReward: 0
-  dangerLevel: 0
+  enemyName: Motonautilus
   enemyPrefab: {fileID: 0}
+  maxHealth: 0
+  moveSpeed: 2
+  dangerLevel: 0
+  isAerial: 0
+  isArmored: 0

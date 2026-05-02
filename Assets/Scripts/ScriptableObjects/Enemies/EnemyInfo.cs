@@ -5,9 +5,9 @@ public class EnemyInfo : ScriptableObject
     public string enemyName;
     public GameObject enemyPrefab;
 
-    public float maxHealth;
+    public int maxHealth;
     public float moveSpeed;
-    public float dangerLevel;
+    public int dangerLevel;
 
 
     public bool isAerial;

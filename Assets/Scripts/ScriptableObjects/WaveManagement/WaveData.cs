@@ -16,6 +16,7 @@ public class WaveData : ScriptableObject
 {
     public int waveNumber;
     public List<EnemySpawnGroup> spawnGroups;
+    public float delayBetweenGroups;
     public float bonusPercentage;
 
     public float GetTotalWaveBudget()
