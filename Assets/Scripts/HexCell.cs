@@ -3,11 +3,13 @@ using UnityEngine;
 public enum HexState
 {
     Active,     // la construccion esta habilitada
-    Disabled    // la construccion no esta habilitada
+    Disabled,   // la construccion no esta habilitada
+    Underwater  // para futura implementacion de la marea
 }
 public class HexCell : MonoBehaviour
 {
     public HexState state = HexState.Disabled;
+    [SerializeField] private bool isUnderSeaLevel;
     public bool hasTower = false;
     public bool isHighlighted;
     public GameObject currentTower;
@@ -19,6 +21,7 @@ public class HexCell : MonoBehaviour
     public Color occupied;
     public Color selected;
     public Color disabled;
+    public Color waterColor;
 
     private void Awake()
     {
@@ -34,25 +37,22 @@ public class HexCell : MonoBehaviour
     public void ChangeHexCellColors()
     {
         Color targetColor;
-        if(state == HexState.Active)
+        if (state == HexState.Underwater)
         {
-            if(!hasTower)
+            targetColor = waterColor;
+        }
+        else if (state == HexState.Active)
+        {
+            if (!hasTower)
             {
-                if(isHighlighted)
-                {
-                    targetColor = selected;
-                }
-                else
-                {
-                    targetColor = active;
-                }
+                targetColor = isHighlighted ? selected : active;
             }
             else
             {
                 targetColor = occupied;
             }
         }
-        else
+        else // Disabled
         {
             targetColor = disabled;
         }
