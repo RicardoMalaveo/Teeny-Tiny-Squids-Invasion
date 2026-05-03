@@ -7,7 +7,7 @@ public class EnemyInfo : ScriptableObject
 
     public int maxHealth;
     public float moveSpeed;
-    public int dangerLevel;
+    public float dangerLevel;
 
 
     public bool isAerial;

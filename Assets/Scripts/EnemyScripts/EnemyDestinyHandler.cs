@@ -30,8 +30,8 @@ public class EnemyDestinyHandler : MonoBehaviour
     {
         if (isDead) return;
 
-        int damage = Mathf.RoundToInt(data.dangerLevel);
-        //GameManager.Instance.TakeCastleDamage(damage);
+        float damage = data.dangerLevel;
+        GameManager.Instance.DamagePlayer(damage);
 
         HandleDeath(false);
     }

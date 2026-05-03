@@ -213,9 +213,9 @@ Transform:
   m_GameObject: {fileID: 8572778909673594029}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.04, y: 4.23, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.95, y: 0.95, z: 0.95}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9110240279555406282}
   - {fileID: 1053820825544919127}
@@ -879,8 +879,6 @@ MonoBehaviour:
   isHighlighted: 0
   currentTower: {fileID: 0}
   currentTowerData: {fileID: 0}
-  hexCellBuildTowerMenuPrefab: {fileID: 4308428355669263053, guid: a24bb920ef6f4c04eb0a60c5a333350a, type: 3}
-  hexCellManageTowerMenuPrefab: {fileID: 2251832744457024675, guid: 6fa0ed64e41d12c4ab28d44227b046cb, type: 3}
   sprite1: {fileID: 537369282173572109}
   sprite2: {fileID: 6223880990251167898}
   active: {r: 0.46883842, g: 1, b: 0.1745283, a: 0.19607843}

@@ -6,13 +6,13 @@ public class GameManager : MonoBehaviour
     public enum GameState { Prep, Wave, GameOver }
     public GameState currentState;
 
-    [SerializeField] private int initialPlayerSand;
+    [SerializeField] private float initialPlayerSand;
     public float refundPercentage;
-    public int CurrentSand { get; private set; }
+    public float CurrentSand { get; private set; }
 
 
-    [SerializeField] private int totalPlayerHP;
-    private int currentPlayerHP;
+    [SerializeField] private float totalPlayerHP;
+    [SerializeField] private float currentPlayerHP;
     [SerializeField] private int CurrentWave;
     public bool isGameOver = false;
 
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    public void DamagePlayer(int amount)
+    public void DamagePlayer(float amount)
     {
         if (isGameOver)
         {
@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    public void AddSand(int amount)
+    public void AddSand(float amount)
     {
         Debug.Log("refunding: " + amount);
         CurrentSand += amount;

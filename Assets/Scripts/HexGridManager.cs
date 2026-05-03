@@ -54,17 +54,18 @@ public class HexGridManager : MonoBehaviour
 
         if (GameManager.Instance.TryPurchase(data.cost))
         {
-            BuildTower(targetHex);
+            BuildTower(targetHex, data);
         }
     }
 
-    private void BuildTower(HexCell hexCell)
+    private void BuildTower(HexCell hexCell, TowerData data)
     {
-        TowerData data = towerLibrary[selectedTowerIndex];
         hexCell.hasTower = true;
         hexCell.currentTowerData = data;
+
         Vector3 spawnPos = hexCell.transform.position;
         hexCell.currentTower = Instantiate(data.towerPrefab, spawnPos, Quaternion.identity);
+
         hexCell.ChangeHexCellColors();
     }
 
