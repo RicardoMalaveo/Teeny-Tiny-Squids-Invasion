@@ -69557,6 +69557,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108658182}
   m_CullTransparentMesh: 1
+--- !u!1001 &1109659671
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8140829810345524309, guid: eec9fec2b1c33c34ebc235e865cc6ac1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.71112394
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140829810345524309, guid: eec9fec2b1c33c34ebc235e865cc6ac1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7030667
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140829810345524309, guid: eec9fec2b1c33c34ebc235e865cc6ac1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -89.347
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588024647795696950, guid: eec9fec2b1c33c34ebc235e865cc6ac1, type: 3}
+      propertyPath: m_Name
+      value: BaseTowerV2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963599525270339468, guid: eec9fec2b1c33c34ebc235e865cc6ac1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.2128434
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963599525270339468, guid: eec9fec2b1c33c34ebc235e865cc6ac1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.9999644
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963599525270339468, guid: eec9fec2b1c33c34ebc235e865cc6ac1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 30.66258
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963599525270339468, guid: eec9fec2b1c33c34ebc235e865cc6ac1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99758476
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963599525270339468, guid: eec9fec2b1c33c34ebc235e865cc6ac1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963599525270339468, guid: eec9fec2b1c33c34ebc235e865cc6ac1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.06946032
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963599525270339468, guid: eec9fec2b1c33c34ebc235e865cc6ac1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963599525270339468, guid: eec9fec2b1c33c34ebc235e865cc6ac1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963599525270339468, guid: eec9fec2b1c33c34ebc235e865cc6ac1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 7.966
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963599525270339468, guid: eec9fec2b1c33c34ebc235e865cc6ac1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eec9fec2b1c33c34ebc235e865cc6ac1, type: 3}
 --- !u!43 &1110678207
 Mesh:
   m_ObjectHideFlags: 0
@@ -88042,7 +88111,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.75
+  m_fontSize: 54.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -109913,7 +109982,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.000000008490558, y: 0.7606097}
   m_AnchorMax: {x: 0.15086038, y: 0.9669843}
-  m_AnchoredPosition: {x: 3.2000122, y: 26.742004}
+  m_AnchoredPosition: {x: 3.1999512, y: 26.742004}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1708351313
@@ -109965,7 +110034,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.4
+  m_fontSize: 23.5
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -130726,7 +130795,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.75
+  m_fontSize: 54.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -147943,3 +148012,4 @@ SceneRoots:
   - {fileID: 1172506162}
   - {fileID: 1171523054}
   - {fileID: 180357065}
+  - {fileID: 1109659671}
