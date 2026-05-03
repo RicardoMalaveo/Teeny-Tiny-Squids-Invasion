@@ -10,33 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d82c3ab160721043a11d7f91b934428, type: 3}
-  m_Name: Wave_1
+  m_Name: Wave_4
   m_EditorClassIdentifier: Assembly-CSharp::WaveData
-  waveNumber: 1
+  waveNumber: 4
   spawnGroups:
   - enemyType: {fileID: 11400000, guid: 4e502b2d9a4a12746a863ced6d2e8557, type: 2}
-    count: 20
+    count: 35
     intervalBetweenEnemies: 1
   - enemyType: {fileID: 11400000, guid: c76d7ab8136cf034c8d11b8fe2768ff8, type: 2}
-    count: 1
-    intervalBetweenEnemies: 0
+    count: 5
+    intervalBetweenEnemies: 3
   - enemyType: {fileID: 11400000, guid: 4e502b2d9a4a12746a863ced6d2e8557, type: 2}
-    count: 20
+    count: 35
     intervalBetweenEnemies: 1
   - enemyType: {fileID: 11400000, guid: c76d7ab8136cf034c8d11b8fe2768ff8, type: 2}
-    count: 1
-    intervalBetweenEnemies: 0
+    count: 5
+    intervalBetweenEnemies: 3
   - enemyType: {fileID: 11400000, guid: 4e502b2d9a4a12746a863ced6d2e8557, type: 2}
-    count: 20
+    count: 35
     intervalBetweenEnemies: 1
   - enemyType: {fileID: 11400000, guid: c76d7ab8136cf034c8d11b8fe2768ff8, type: 2}
-    count: 1
-    intervalBetweenEnemies: 0
-  - enemyType: {fileID: 11400000, guid: 0e21c38a3562c8646bc7f27852d6140f, type: 2}
-    count: 3
-    intervalBetweenEnemies: 15
+    count: 5
+    intervalBetweenEnemies: 3
+  - enemyType: {fileID: 11400000, guid: 4e502b2d9a4a12746a863ced6d2e8557, type: 2}
+    count: 35
+    intervalBetweenEnemies: 1
   - enemyType: {fileID: 11400000, guid: c76d7ab8136cf034c8d11b8fe2768ff8, type: 2}
-    count: 1
-    intervalBetweenEnemies: 0
+    count: 5
+    intervalBetweenEnemies: 3
   delayBetweenGroups: 2
-  bonusPercentage: 0.25
+  bonusPercentage: 0.1

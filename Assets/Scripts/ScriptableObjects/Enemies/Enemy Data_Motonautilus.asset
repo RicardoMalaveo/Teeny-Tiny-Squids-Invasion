@@ -15,7 +15,9 @@ MonoBehaviour:
   enemyName: Motonautilus
   enemyPrefab: {fileID: 6409554344332187099, guid: f276e3f4f8601cc44a50282a309c2f47, type: 3}
   maxHealth: 15
-  moveSpeed: 8
+  moveSpeed: 12
   dangerLevel: 3
   isAerial: 0
+  flightAltitude: 0
+  submergedDepth: 0
   isArmored: 0

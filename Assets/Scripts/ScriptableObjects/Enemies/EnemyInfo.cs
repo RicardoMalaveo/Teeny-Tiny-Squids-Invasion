@@ -11,5 +11,7 @@ public class EnemyInfo : ScriptableObject
 
 
     public bool isAerial;
+    public int flightAltitude;
+    public int submergedDepth;
     public bool isArmored;
 }

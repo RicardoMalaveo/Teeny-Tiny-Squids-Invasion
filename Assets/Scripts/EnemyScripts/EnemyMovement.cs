@@ -6,8 +6,8 @@ public class EnemyMovement : MonoBehaviour
     private FlightState currentFlightState = FlightState.Rising;
 
 
-    [SerializeField] private float flightAltitude;
-    [SerializeField] private float submergedDepth;
+    private float flightAltitude;
+    private float submergedDepth;
     [SerializeField] private float riseSpeedMultiplier;
 
     private EnemyWayPoints path;
@@ -21,6 +21,8 @@ public class EnemyMovement : MonoBehaviour
         info = data;
         castleTarget = target;
         enemyDestinyHandler = GetComponent<EnemyDestinyHandler>();
+        flightAltitude = info.flightAltitude;
+        submergedDepth = info.submergedDepth;
 
         if (info.isAerial)
         {
@@ -50,7 +52,7 @@ public class EnemyMovement : MonoBehaviour
         if (currentFlightState == FlightState.Rising)
         {
             Vector3 targetHeight = new Vector3(transform.position.x, flightAltitude, transform.position.z);
-            transform.position = Vector3.MoveTowards(transform.position, targetHeight, info.moveSpeed * riseSpeedMultiplier * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetHeight, info.moveSpeed * 2f * Time.deltaTime);
 
             if (Mathf.Abs(transform.position.y - flightAltitude) < 0.1f)
             {
@@ -61,8 +63,9 @@ public class EnemyMovement : MonoBehaviour
         {
             Vector3 targetPosition = new Vector3(castleTarget.position.x, flightAltitude, castleTarget.position.z);
             MovementToTarget(targetPosition);
-
-            if (Vector3.Distance(transform.position, targetPosition) < 0.5f)
+            float distanceToCastle = Vector2.Distance(new Vector2(transform.position.x, transform.position.z),
+                                                      new Vector2(targetPosition.x, targetPosition.z));
+            if (distanceToCastle < 1.0f)
             {
                 ReachedLastWayPoint();
             }

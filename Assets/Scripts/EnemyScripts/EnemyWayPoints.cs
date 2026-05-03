@@ -29,4 +29,15 @@ public class EnemyWayPoints : MonoBehaviour
             }
         }
     }
+    public float GetTotalPathDistance()
+    {
+        if (nodes == null || nodes.Count < 2) return 0f;
+
+        float distance = 0f;
+        for (int i = 0; i < nodes.Count - 1; i++)
+        {
+            distance += Vector3.Distance(nodes[i].position, nodes[i + 1].position);
+        }
+        return distance;
+    }
 }

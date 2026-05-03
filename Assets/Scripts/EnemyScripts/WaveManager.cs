@@ -21,6 +21,28 @@ public class WaveManager : MonoBehaviour
             Instance = this;
         }
     }
+    public float GetCurrentWaveDuration()
+    {
+        if (currentWaveIndex >= levelsWaves.Count) return 0;
+
+        EnemyWayPoints path = Object.FindFirstObjectByType<EnemyWayPoints>();
+        float realPathDistance = (path != null) ? path.GetTotalPathDistance() : 50f;
+
+        WaveData wave = levelsWaves[currentWaveIndex];
+        float totalTime = 0;
+        float slowestSpeed = float.MaxValue;
+
+        foreach (var group in wave.spawnGroups)
+        {
+            totalTime += (group.count * group.intervalBetweenEnemies);
+            if (group.enemyType.moveSpeed < slowestSpeed)
+                slowestSpeed = group.enemyType.moveSpeed;
+        }
+        totalTime += wave.delayBetweenGroups * (wave.spawnGroups.Count - 1);
+        float travelTime = realPathDistance / slowestSpeed;
+
+        return totalTime + travelTime;
+    }
 
     public void DecrementEnemyCount()
     {
@@ -37,6 +59,7 @@ public class WaveManager : MonoBehaviour
         int totalInWave = 0;
         foreach (var group in wave.spawnGroups) totalInWave += group.count;
         activeEnemiesCount = totalInWave;
+
         foreach (var group in wave.spawnGroups)
         {
             for (int i = 0; i < group.count; i++)
@@ -44,7 +67,7 @@ public class WaveManager : MonoBehaviour
                 SpawnEnemy(group.enemyType);
                 yield return new WaitForSeconds(group.intervalBetweenEnemies);
             }
-            yield return new WaitForSeconds(wave.delayBetweenGroups); // Gap between squads
+            yield return new WaitForSeconds(wave.delayBetweenGroups);
         }
 
         yield return new WaitUntil(() => activeEnemiesCount <= 0);

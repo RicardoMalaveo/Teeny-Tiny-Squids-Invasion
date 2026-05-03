@@ -23,15 +23,17 @@ public class GameManager : MonoBehaviour
     //references to UI info
     [SerializeField] private TextMeshProUGUI sandText;
     [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private TextMeshProUGUI hpText;
 
     private void Awake()
     {
-
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
         CurrentSand = initialPlayerSand;
         currentPlayerHP = totalPlayerHP;
         UpdateSandUI();
+        UpdateHPUI();
     }
 
     private void Start()
@@ -40,15 +42,17 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if (isGameOver) return;
-
         if (currentState == GameState.Prep)
         {
-            HandleCountdown();
+            HandlePrepCountdown();
+        }
+        else if (currentState == GameState.Wave)
+        {
+            HandleBattleCountdown();
         }
     }
 
-    private void HandleCountdown()
+    private void HandlePrepCountdown()
     {
         currentCountdown -= Time.deltaTime;
         UpdateTimerUI();
@@ -57,6 +61,12 @@ public class GameManager : MonoBehaviour
         {
             StartWave();
         }
+    }
+
+    private void HandleBattleCountdown()
+    {
+        currentCountdown -= Time.deltaTime;
+        UpdateTimerUI();
     }
     public void StartCountdown(float seconds)
     {
@@ -72,9 +82,9 @@ public class GameManager : MonoBehaviour
         if (currentState == GameState.Wave) return;
 
         currentState = GameState.Wave;
-        currentCountdown = 0;
-        UpdateTimerUI();
+        currentCountdown = WaveManager.Instance.GetCurrentWaveDuration();
 
+        UpdateTimerUI();
         WaveManager.Instance.StartNextWave();
     }
 
@@ -93,18 +103,23 @@ public class GameManager : MonoBehaviour
 
     public void DamagePlayer(float amount)
     {
-        if (isGameOver)
-        {
-            return;
-        }
+        if (isGameOver) return;
 
         currentPlayerHP -= amount;
+        UpdateHPUI(); 
+
         Debug.Log("Castle HP: " + currentPlayerHP);
 
         if (currentPlayerHP <= 0)
         {
+            currentPlayerHP = 0; 
+            UpdateHPUI();
             LoseGame();
         }
+    }
+    private void UpdateHPUI()
+    {
+        hpText.text = "Castle HP: " + currentPlayerHP.ToString();
     }
     public bool TryPurchase(int cost)
     {

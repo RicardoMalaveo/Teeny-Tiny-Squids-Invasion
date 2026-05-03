@@ -686,12 +686,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4486659138855261472}
-  - component: {fileID: 7311075675060796527}
   - component: {fileID: 1844740334362263753}
   - component: {fileID: 4078342895831556153}
+  - component: {fileID: 7311075675060796527}
   m_Layer: 0
   m_Name: Motonautilus
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -715,21 +715,6 @@ Transform:
   - {fileID: 1229254649225229169}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7311075675060796527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6409554344332187099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43dfccdb3ee91a746a2143da2a264be6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
-  flightAltitude: 5
-  submergedDepth: -2
-  riseSpeedMultiplier: 0.5
 --- !u!54 &1844740334362263753
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -770,6 +755,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDestinyHandler
   data: {fileID: 11400000, guid: c76d7ab8136cf034c8d11b8fe2768ff8, type: 2}
+--- !u!114 &7311075675060796527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6409554344332187099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43dfccdb3ee91a746a2143da2a264be6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
+  riseSpeedMultiplier: 0.5
 --- !u!1 &6887997435487629570
 GameObject:
   m_ObjectHideFlags: 0
