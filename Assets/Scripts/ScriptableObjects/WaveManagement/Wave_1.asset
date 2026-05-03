@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaveData
   waveNumber: 1
   spawnGroups:
+  - enemyType: {fileID: 11400000, guid: c76d7ab8136cf034c8d11b8fe2768ff8, type: 2}
+    count: 5
+    intervalBetweenEnemies: 2
   - enemyType: {fileID: 11400000, guid: 4e502b2d9a4a12746a863ced6d2e8557, type: 2}
     count: 20
     intervalBetweenEnemies: 1
-  - enemyType: {fileID: 11400000, guid: c76d7ab8136cf034c8d11b8fe2768ff8, type: 2}
-    count: 1
-    intervalBetweenEnemies: 0
   - enemyType: {fileID: 11400000, guid: 4e502b2d9a4a12746a863ced6d2e8557, type: 2}
     count: 20
     intervalBetweenEnemies: 1
