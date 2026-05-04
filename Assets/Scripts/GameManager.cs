@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
     public void EnemyWaveOver()
     {
         if (isGameOver) return;
-        currentWaveNumber++; // Move to next wave
+        currentWaveNumber++;
         StartCountdown(timeBetweenWaves);
     }
     private void UpdateTimerUI()
