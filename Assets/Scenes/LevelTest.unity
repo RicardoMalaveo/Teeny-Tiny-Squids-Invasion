@@ -15990,15 +15990,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   currentState: 0
+  totalPlayerHP: 100
+  currentPlayerHP: 0
   initialPlayerSand: 40
   refundPercentage: 0.5
-  totalPlayerHP: 100
-  CurrentWave: 0
   isGameOver: 0
   initialPrepTime: 120
   timeBetweenWaves: 60
   sandText: {fileID: 1760376079}
   timerText: {fileID: 1905941002}
+  hpText: {fileID: 0}
+  currentWave: {fileID: 0}
+  gameState: {fileID: 0}
 --- !u!43 &423133138
 Mesh:
   m_ObjectHideFlags: 0
@@ -75732,6 +75735,8 @@ MonoBehaviour:
   floatingBuildingMenuHight: 0.25
   hexBuildMenuPanel: {fileID: 1390222163}
   hexChangeMenu: {fileID: 1825991136}
+  attackRangeCircle: {fileID: 0}
+  attackRangeCircleElevation: 0
   hexLayer:
     serializedVersion: 2
     m_Bits: 64
