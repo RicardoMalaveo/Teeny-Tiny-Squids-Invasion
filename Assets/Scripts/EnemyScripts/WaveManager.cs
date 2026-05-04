@@ -100,6 +100,6 @@ public class WaveManager : MonoBehaviour
         GameManager.Instance.AddSand(bonus);
 
         currentWaveIndex++;
-        GameManager.Instance.OnWaveExtinction();
+        GameManager.Instance.EnemyWaveOver();
     }
 }

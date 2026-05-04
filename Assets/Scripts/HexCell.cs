@@ -21,7 +21,7 @@ public class HexCell : MonoBehaviour
     public Color occupied;
     public Color selected;
     public Color disabled;
-    public Color waterColor;
+    public Color underWater;
 
     private void Awake()
     {
@@ -39,7 +39,7 @@ public class HexCell : MonoBehaviour
         Color targetColor;
         if (state == HexState.Underwater)
         {
-            targetColor = waterColor;
+            targetColor = underWater;
         }
         else if (state == HexState.Active)
         {

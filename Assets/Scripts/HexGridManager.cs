@@ -9,6 +9,8 @@ public class HexGridManager : MonoBehaviour
     [SerializeField] private float floatingBuildingMenuHight;
     [SerializeField] private GameObject hexBuildMenuPanel;
     [SerializeField] private GameObject hexChangeMenu;
+    [SerializeField] private GameObject attackRangeCircle;
+    [SerializeField] private float attackRangeCircleElevation;
 
 
     public static HexGridManager Instance;
@@ -121,8 +123,6 @@ public class HexGridManager : MonoBehaviour
         ClearLastHex();
     }
 
-
-
     private void HexSelection(HexCell newHex)
     {
         lastHitHex = newHex;
@@ -193,10 +193,24 @@ public class HexGridManager : MonoBehaviour
         hexGroupList.AddRange(found);
     }
 
+    public void AttackRangeIndicator(TowerData data)
+    {
+        attackRangeCircle.SetActive(true);
+        attackRangeCircle.transform.localScale = Vector3.one;
+        float diameter = data.attackRange;
+        attackRangeCircle.transform.localScale = new Vector3(diameter, diameter, 1f);
+        attackRangeCircle.transform.position = new Vector3(lastHitHex.transform.position.x, attackRangeCircleElevation, lastHitHex.transform.position.z);
+    }
+
+    public void HideAttackRangeIndicator()
+    {
+        attackRangeCircle.SetActive(false);
+        ClearLastHex();
+    }
+
     public void OnBuildButtonPressed(int index)
     {
             BuildTowerSelected(index, lastHitHex);
-            ClearLastHex();
     }
 
     public void OnSellButtonPressed()

@@ -875,6 +875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HexCell
   state: 1
+  isUnderSeaLevel: 0
   hasTower: 0
   isHighlighted: 0
   currentTower: {fileID: 0}
@@ -885,3 +886,4 @@ MonoBehaviour:
   occupied: {r: 1, g: 0, b: 0, a: 0.19607843}
   selected: {r: 0, g: 0.3031702, b: 1, a: 0.19607843}
   disabled: {r: 0, g: 0, b: 0, a: 0}
+  underWater: {r: 1, g: 0, b: 0.94432163, a: 1}

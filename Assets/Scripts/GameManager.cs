@@ -5,15 +5,13 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public enum GameState { Prep, Wave, GameOver }
     public GameState currentState;
-
-    [SerializeField] private float initialPlayerSand;
-    public float refundPercentage;
-    public float CurrentSand { get; private set; }
-
+    private int currentWaveNumber = 1;
 
     [SerializeField] private float totalPlayerHP;
     [SerializeField] private float currentPlayerHP;
-    [SerializeField] private int CurrentWave;
+    [SerializeField] private float initialPlayerSand;
+    public float refundPercentage;
+    public float CurrentSand { get; private set; }
     public bool isGameOver = false;
 
     [SerializeField] private float initialPrepTime;
@@ -24,73 +22,65 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI sandText;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI hpText;
+    [SerializeField] private TextMeshProUGUI currentWave;
+    [SerializeField] private TextMeshProUGUI gameState;
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        if (Instance == null) Instance = this; else Destroy(gameObject);
 
         CurrentSand = initialPlayerSand;
         currentPlayerHP = totalPlayerHP;
-        UpdateSandUI();
-        UpdateHPUI();
     }
 
     private void Start()
     {
+        UpdateUI();
         StartCountdown(initialPrepTime);
     }
-    private void Update()
+
+    public void SkipCountdown()
     {
         if (currentState == GameState.Prep)
-        {
-            HandlePrepCountdown();
-        }
-        else if (currentState == GameState.Wave)
-        {
-            HandleBattleCountdown();
-        }
-    }
-
-    private void HandlePrepCountdown()
-    {
-        currentCountdown -= Time.deltaTime;
-        UpdateTimerUI();
-
-        if (currentCountdown <= 0)
         {
             StartWave();
         }
     }
 
-    private void HandleBattleCountdown()
+    private void Update()
     {
+        if (isGameOver) return;
+
         currentCountdown -= Time.deltaTime;
         UpdateTimerUI();
+
+        if (currentState == GameState.Prep && currentCountdown <= 0)
+        {
+            StartWave();
+        }
     }
+
     public void StartCountdown(float seconds)
     {
         currentState = GameState.Prep;
         currentCountdown = seconds;
+        UpdateUI();
     }
-    public void SkipCountdown()
-    {
-        if (currentState == GameState.Prep) StartWave();
-    }
+
     public void StartWave()
     {
         if (currentState == GameState.Wave) return;
 
         currentState = GameState.Wave;
         currentCountdown = WaveManager.Instance.GetCurrentWaveDuration();
-
-        UpdateTimerUI();
+        UpdateUI();
         WaveManager.Instance.StartNextWave();
     }
 
-    public void OnWaveExtinction()
+    public void EnemyWaveOver()
     {
         if (isGameOver) return;
+        currentWaveNumber++; // Move to next wave
         StartCountdown(timeBetweenWaves);
     }
     private void UpdateTimerUI()
@@ -105,28 +95,18 @@ public class GameManager : MonoBehaviour
     {
         if (isGameOver) return;
 
-        currentPlayerHP -= amount;
-        UpdateHPUI(); 
-
+        currentPlayerHP = Mathf.Max(0, currentPlayerHP - amount);
         Debug.Log("Castle HP: " + currentPlayerHP);
+        UpdateUI();
+        if (currentPlayerHP <= 0) LoseGame();
+    }
 
-        if (currentPlayerHP <= 0)
-        {
-            currentPlayerHP = 0; 
-            UpdateHPUI();
-            LoseGame();
-        }
-    }
-    private void UpdateHPUI()
-    {
-        hpText.text = "Castle HP: " + currentPlayerHP.ToString();
-    }
     public bool TryPurchase(int cost)
     {
         if (CurrentSand >= cost)
         {
             CurrentSand -= cost;
-            UpdateSandUI();
+            UpdateUI();
             return true;
         }
         Debug.Log("Not enough sand");
@@ -135,14 +115,19 @@ public class GameManager : MonoBehaviour
 
     public void AddSand(float amount)
     {
-        Debug.Log("refunding: " + amount);
+        Debug.Log("Adding sand: " + amount);
         CurrentSand += amount;
-        UpdateSandUI();
+        UpdateUI();
     }
 
-    private void UpdateSandUI()
+    private void UpdateUI()
     {
-        sandText.text = "Sand: " + CurrentSand.ToString();
+        sandText.text = "Sand: " + CurrentSand;
+        hpText.text = "Castle HP: "+ currentPlayerHP;
+        currentWave.text = "Enemy Wave: " + currentWaveNumber;
+
+        gameState.text = (currentState == GameState.Prep) ? "PREPARING" : "ENEMY WAVE!";
+        gameState.color = (currentState == GameState.Prep) ? Color.blue : Color.red;
     }
 
     private void LoseGame()
