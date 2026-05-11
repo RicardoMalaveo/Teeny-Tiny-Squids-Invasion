@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e6c636e877b4b8e42a96c7c2bc4d7604
+guid: df2779518a830644dae80f50879ab265
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Evil Vampire
+  - Maderns Comic
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
