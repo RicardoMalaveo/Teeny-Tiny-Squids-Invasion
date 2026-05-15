@@ -16,6 +16,8 @@ MonoBehaviour:
   enemyPrefab: {fileID: 328599238559929102, guid: f8c5c604c64f36045a178cd7fdda0c94, type: 3}
   maxHealth: 150
   moveSpeed: 0.5
-  dangerLevel: 7.5
+  dangerLevel: 7
   isAerial: 0
+  flightAltitude: 0
+  submergedDepth: 0
   isArmored: 1
