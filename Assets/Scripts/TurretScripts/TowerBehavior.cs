@@ -70,7 +70,6 @@ public class TowerBehavior : MonoBehaviour
 
     void Shoot()
     {
-
         GameObject projectileGO = Instantiate(towerData.projectilePrefab, bulletSpawn.position, bulletSpawn.rotation);
 
         if (projectileGO.TryGetComponent<ProjectileBase>(out var projectile))

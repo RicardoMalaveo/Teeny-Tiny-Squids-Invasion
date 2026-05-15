@@ -2744,8 +2744,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4778749194337913170}
   - component: {fileID: 168889177957916930}
-  - component: {fileID: 5526373405644715784}
   - component: {fileID: 6456667805116913128}
+  - component: {fileID: 5526373405644715784}
   m_Layer: 0
   m_Name: SandCatapult
   m_TagString: Untagged
@@ -2791,21 +2791,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.14, y: 4, z: 2.06}
   m_Center: {x: 0, y: 2.27, z: 0}
---- !u!114 &5526373405644715784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7675810906767332389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d90335ff59c2e8349b8be4b1758da1bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TowerBehavior
-  towerData: {fileID: 11400000, guid: fbc626a8fff74ca43ba542a7c4b4e087, type: 2}
-  headOfTurret: {fileID: 4781247204335408417}
-  bulletSpawn: {fileID: 8670718088578224380}
 --- !u!135 &6456667805116913128
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2827,6 +2812,21 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 12
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5526373405644715784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7675810906767332389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90335ff59c2e8349b8be4b1758da1bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerBehavior
+  towerData: {fileID: 11400000, guid: fbc626a8fff74ca43ba542a7c4b4e087, type: 2}
+  headOfTurret: {fileID: 4781247204335408417}
+  bulletSpawn: {fileID: 8670718088578224380}
 --- !u!1 &7800535768841262945
 GameObject:
   m_ObjectHideFlags: 0

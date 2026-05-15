@@ -2289,7 +2289,7 @@ Transform:
   m_GameObject: {fileID: 556416901}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1413.1849, y: 804.7111, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4076,7 +4076,7 @@ Transform:
   m_GameObject: {fileID: 1025928869}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1014.5171, y: 554.7142, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4149,7 +4149,7 @@ Transform:
   m_GameObject: {fileID: 1045291912}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1138.3514, y: 584.7283, z: -3.47196}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8459,7 +8459,6 @@ GameObject:
   - component: {fileID: 2135556202}
   - component: {fileID: 2135556201}
   - component: {fileID: 2135556200}
-  - component: {fileID: 2135556203}
   - component: {fileID: 2135556204}
   m_Layer: 5
   m_Name: Play_btn
@@ -8530,7 +8529,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2135556201}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1045291913}
+        m_TargetAssemblyTypeName: GameSceneManager, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Nivel1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2135556201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8569,19 +8580,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135556198}
   m_CullTransparentMesh: 1
---- !u!114 &2135556203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2135556198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de10b18dbebf20a4f824b1a34d7a4b7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
-  sceneNameToLoad: Nivel1
 --- !u!114 &2135556204
 MonoBehaviour:
   m_ObjectHideFlags: 0

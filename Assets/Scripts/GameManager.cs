@@ -1,11 +1,12 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public enum GameState { Prep, Wave, GameOver }
+    public enum GameState { Prep, Wave, Paused, GameOver }
     public GameState currentState;
-    private int currentWaveNumber = 1;
+    private GameState previousState;
 
     [SerializeField] private float totalPlayerHP;
     [SerializeField] private float currentPlayerHP;
@@ -14,16 +15,24 @@ public class GameManager : MonoBehaviour
     public float CurrentSand { get; private set; }
     public bool isGameOver = false;
 
+    private float savedTimeScale = 1f;
+    private int currentWaveNumber = 1;
     [SerializeField] private float initialPrepTime;
     [SerializeField] private float timeBetweenWaves;
     private float currentCountdown;
 
     //references to UI info
+    [SerializeField] private GameObject optionsPanel;
     [SerializeField] private TextMeshProUGUI sandText;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI hpText;
     [SerializeField] private TextMeshProUGUI currentWave;
     [SerializeField] private TextMeshProUGUI gameState;
+
+
+    [SerializeField] private GameObject timeScalex2; 
+    [SerializeField] private GameObject timeScalex4; 
+    [SerializeField] private GameObject timeScalex1; 
 
     private void Awake()
     {
@@ -37,6 +46,7 @@ public class GameManager : MonoBehaviour
     {
         UpdateUI();
         StartCountdown(initialPrepTime);
+        UpdateSpeedButtons(1f);
     }
 
     public void SkipCountdown()
@@ -120,6 +130,36 @@ public class GameManager : MonoBehaviour
         UpdateUI();
     }
 
+    public void ToggleMenu()
+    {
+        if (currentState != GameState.Paused)
+        {
+            previousState = currentState;
+            currentState = GameState.Paused;
+            Time.timeScale = 0f;
+            optionsPanel.SetActive(true);
+        }
+        else
+        {
+            currentState = previousState;
+            Time.timeScale = savedTimeScale;
+            optionsPanel.SetActive(false);
+        }
+    }
+
+    public void ChangeGameSpeed(float newSpeed)
+    {
+        savedTimeScale = newSpeed;
+        Time.timeScale = newSpeed;
+        UpdateSpeedButtons(newSpeed);
+    }
+
+    private void UpdateSpeedButtons(float speed)
+    {
+        timeScalex1.SetActive(speed == 4f); 
+        timeScalex2.SetActive(speed == 1f);
+        timeScalex4.SetActive(speed == 2f);
+    }
     private void UpdateUI()
     {
         sandText.text = "Sand: " + CurrentSand;

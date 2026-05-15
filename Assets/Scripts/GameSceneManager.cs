@@ -10,28 +10,29 @@ public class GameSceneManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
     }
-    public void LoadScene(string name)
+    public void LoadScene(string sceneName)
     {
-        if (!string.IsNullOrEmpty(name))
-        {
-            SceneManager.LoadScene(name);
-        }
-        else
-        {
-            Debug.LogWarning("No scene name selected");
-        }
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void ReloadCurrentScene()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void QuitGame()
     {
         Debug.Log("Exiting game...");
         Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 }

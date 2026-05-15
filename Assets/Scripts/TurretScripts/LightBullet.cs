@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BaseTurretBulletHandler : ProjectileBase
+public class LightBullet : ProjectileBase
 {
 
 }
