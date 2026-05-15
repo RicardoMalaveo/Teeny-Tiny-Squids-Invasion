@@ -38,6 +38,12 @@ public class HexGridManager : MonoBehaviour
     }
     private void Update()
     {
+
+        if (GameManager.Instance.currentState == GameManager.GameState.Paused)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Z)) 
         {
             SetHexCellState();

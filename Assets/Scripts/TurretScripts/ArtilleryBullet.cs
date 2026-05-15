@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ArtilleryBullet : CatapultBullet
 {
-    [SerializeField] private float blastRadius = 3.5f;
+    [SerializeField] private float blastRadius;
 
     protected override void HitTarget()
     {
