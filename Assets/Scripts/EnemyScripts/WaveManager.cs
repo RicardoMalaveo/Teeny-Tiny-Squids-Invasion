@@ -44,9 +44,10 @@ public class WaveManager : MonoBehaviour
         return totalTime + travelTime;
     }
 
-    public void DecrementEnemyCount()
+    public void DecrementEnemyCount(EnemyInfo info)
     {
         activeEnemiesCount--;
+        WaveUICounter.Instance.OnEnemyDefeated(info);
     }
     public void StartNextWave()
     {
@@ -59,13 +60,20 @@ public class WaveManager : MonoBehaviour
         int totalInWave = 0;
         foreach (var group in wave.spawnGroups) totalInWave += group.count;
         activeEnemiesCount = totalInWave;
+        WaveUICounter.Instance.SetupTotalWaveComposition(wave);
 
-        foreach (var group in wave.spawnGroups)
+        for (int g = 0; g < wave.spawnGroups.Count; g++)
         {
-            for (int i = 0; i < group.count; i++)
+            var currentGroup = wave.spawnGroups[g];
+            var nextGroup = (g + 1 < wave.spawnGroups.Count) ? wave.spawnGroups[g + 1] : null;
+
+            for (int i = 0; i < currentGroup.count; i++)
             {
-                SpawnEnemy(group.enemyType);
-                yield return new WaitForSeconds(group.intervalBetweenEnemies);
+                SpawnEnemy(currentGroup.enemyType);
+                int remainingInGroup = currentGroup.count - (i + 1);
+                WaveUICounter.Instance.UpdateTimeline(currentGroup.enemyType.enemyName, remainingInGroup, nextGroup);
+
+                yield return new WaitForSeconds(currentGroup.intervalBetweenEnemies);
             }
             yield return new WaitForSeconds(wave.delayBetweenGroups);
         }
@@ -79,7 +87,6 @@ public class WaveManager : MonoBehaviour
     {
         List<Transform> points = info.isAerial ? airSpawnPoints : groundSpawnPoints;
         Transform selectedPoint = points[Random.Range(0, points.Count)];
-
         GameObject enemyGO = Instantiate(info.enemyPrefab, selectedPoint.position, selectedPoint.rotation);
 
         if (enemyGO.TryGetComponent<EnemyDestinyHandler>(out var handler))

@@ -46,7 +46,7 @@ public class EnemyDestinyHandler : MonoBehaviour
             GameManager.Instance.AddSand(data.dangerLevel);
         }
 
-        WaveManager.Instance.DecrementEnemyCount();
+        WaveManager.Instance.DecrementEnemyCount(data);
         Destroy(gameObject);
     }
 }
