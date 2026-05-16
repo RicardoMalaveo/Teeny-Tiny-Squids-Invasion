@@ -41,9 +41,11 @@ public class WaveUICounter : MonoBehaviour
             spawningNowText.text = "Next Invaders on the Way:\nMore Alien Scum On the Way";
         }
 
-        comingNextText.text = $"Spawning Next:\n{next.enemyType.enemyName} x {next.count}";
-
-        if (next == null)
+        if (next != null)
+        {
+            comingNextText.text = $"Spawning Next:\n{next.enemyType.enemyName} x {next.count}";
+        }
+        else
         {
             comingNextText.text = "Spawning Next:\nPrepare for the next Invasion!";
         }

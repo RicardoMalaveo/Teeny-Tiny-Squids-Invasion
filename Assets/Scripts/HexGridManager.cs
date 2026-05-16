@@ -21,7 +21,7 @@ public class HexGridManager : MonoBehaviour
 
 
     public List<TowerData> towerLibrary;
-    private int selectedTowerIndex = 0;
+    //private int selectedTowerIndex = 0;
 
     private void Awake()
     {

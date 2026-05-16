@@ -7,11 +7,15 @@ public class EnemyDestinyHandler : MonoBehaviour
     private float currentHealth;
     private Transform castleTarget;
 
+    private EnemyHPBar enemyHPBar;
+
     public void Setup(EnemyInfo info, Transform target)
     {
         data = info;
         currentHealth = data.maxHealth;
         castleTarget = target;
+        enemyHPBar = GetComponentInChildren<EnemyHPBar>();
+        enemyHPBar.UpdateHPBar(currentHealth, data.maxHealth);
     }
 
     public void ApplyDamage(float amount)
@@ -19,6 +23,7 @@ public class EnemyDestinyHandler : MonoBehaviour
         if (isDead) return;
 
         currentHealth -= amount;
+        enemyHPBar.UpdateHPBar(currentHealth, data.maxHealth);
 
         if (currentHealth <= 0)
         {
