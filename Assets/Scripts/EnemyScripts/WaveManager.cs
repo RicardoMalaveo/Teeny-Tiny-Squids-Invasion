@@ -121,6 +121,17 @@ public class WaveManager : MonoBehaviour
         GameManager.Instance.AddSand(bonus);
 
         currentWaveIndex++;
-        GameManager.Instance.EnemyWaveOver();
+
+        if (currentWaveIndex >= levelsWaves.Count)
+        {
+            WaveUICounter.Instance.SetTimelineActive(false);
+            GameManager.Instance.WinGame();
+        }
+        else
+        {
+            WaveUICounter.Instance.SetTimelineActive(false);
+            UpdatePrepUI();
+            GameManager.Instance.EnemyWaveOver();
+        }
     }
 }

@@ -44,7 +44,7 @@ public class HexGridManager : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Z)) 
+        if (Input.GetKeyDown(KeyCode.B)) 
         {
             SetHexCellState();
         }
@@ -143,13 +143,14 @@ public class HexGridManager : MonoBehaviour
         if (lastHitHex != null)
         {
             HideBuildingMenu();
+            attackRangeCircle.SetActive(false);
             lastHitHex.isHighlighted = false;
             lastHitHex.ChangeHexCellColors();
             lastHitHex = null;
         }
     }
 
-    private void SetHexCellState()
+    public void SetHexCellState()
     {
         int count = hexGroupList.Count;
         for (int i = 0; i < count; i++)
@@ -170,13 +171,20 @@ public class HexGridManager : MonoBehaviour
 
     private void FloatingBuildingMenu(HexCell cell)
     {
+        EventSystem.current.SetSelectedGameObject(null);
         hexBuildMenuPanel.SetActive(false);
         hexChangeMenu.SetActive(false);
+        attackRangeCircle.SetActive(false);
         GameObject activePanel = cell.hasTower ? hexChangeMenu : hexBuildMenuPanel;
         Vector3 screenPos = cell.transform.position + Vector3.up * floatingBuildingMenuHight;
         activePanel.transform.position = screenPos;
         activePanel.transform.LookAt(activePanel.transform.position + uiCamera.transform.forward);
         activePanel.SetActive(true);
+
+        if (cell.hasTower && cell.currentTowerData != null)
+        {
+            AttackRangeIndicator(cell.currentTowerData);
+        }
     }
 
 
@@ -216,12 +224,19 @@ public class HexGridManager : MonoBehaviour
 
     public void OnBuildButtonPressed(int index)
     {
+        if (lastHitHex != null)
+        {
             BuildTowerSelected(index, lastHitHex);
+            ClearLastHex();
+        }
     }
 
     public void OnSellButtonPressed()
     {
+        if (lastHitHex != null)
+        {
             SellTower(lastHitHex);
             ClearLastHex();
+        }
     }
 }

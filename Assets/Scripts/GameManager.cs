@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public enum GameState { Prep, Wave, Paused, GameOver }
+    public enum GameState { Prep, Wave, Paused, Victory, Defeat }
     public GameState currentState;
     private GameState previousState;
 
@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float initialPlayerSand;
     public float refundPercentage;
     public float CurrentSand { get; private set; }
-    public bool isGameOver = false;
 
     private float savedTimeScale = 1f;
     private int currentWaveNumber = 1;
@@ -29,6 +28,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currentWave;
     [SerializeField] private TextMeshProUGUI gameState;
 
+    [SerializeField] private GameObject victoryPanel;
+    [SerializeField] private GameObject defeatPanel;
 
     [SerializeField] private GameObject timeScalex2; 
     [SerializeField] private GameObject timeScalex4; 
@@ -44,6 +45,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        victoryPanel.SetActive(false);
+        defeatPanel.SetActive(false);
         UpdateUI();
         StartCountdown(initialPrepTime);
         UpdateSpeedButtons(1f);
@@ -59,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (isGameOver) return;
+        if (currentState == GameState.Defeat || currentState == GameState.Victory || currentState == GameState.Paused) return;
 
         currentCountdown -= Time.deltaTime;
         UpdateTimerUI();
@@ -89,7 +92,7 @@ public class GameManager : MonoBehaviour
 
     public void EnemyWaveOver()
     {
-        if (isGameOver) return;
+        if (currentState == GameState.Defeat || currentState == GameState.Victory) return;
         currentWaveNumber++;
         StartCountdown(timeBetweenWaves);
     }
@@ -103,7 +106,7 @@ public class GameManager : MonoBehaviour
 
     public void DamagePlayer(float amount)
     {
-        if (isGameOver) return;
+        if (currentState == GameState.Defeat || currentState == GameState.Victory) return;
 
         currentPlayerHP = Mathf.Max(0, currentPlayerHP - amount);
         Debug.Log("Castle HP: " + currentPlayerHP);
@@ -132,6 +135,8 @@ public class GameManager : MonoBehaviour
 
     public void ToggleMenu()
     {
+        if (currentState == GameState.Defeat || currentState == GameState.Victory) return;
+
         if (currentState != GameState.Paused)
         {
             previousState = currentState;
@@ -166,13 +171,44 @@ public class GameManager : MonoBehaviour
         hpText.text = "Castle HP: "+ currentPlayerHP;
         currentWave.text = "Enemy Wave: " + currentWaveNumber;
 
-        gameState.text = (currentState == GameState.Prep) ? "PREPARING" : "ENEMY WAVE!";
-        gameState.color = (currentState == GameState.Prep) ? Color.blue : Color.red;
+        switch (currentState)
+        {
+            case GameState.Prep:
+                gameState.text = "PREPARING";
+                gameState.color = Color.blue;
+                break;
+            case GameState.Wave:
+                gameState.text = "ENEMY WAVE!";
+                gameState.color = Color.red;
+                break;
+            case GameState.Victory:
+                gameState.text = "VICTORY!";
+                gameState.color = Color.green;
+                break;
+            case GameState.Defeat:
+                gameState.text = "DEFEAT!";
+                gameState.color = Color.black;
+                break;
+        }
     }
 
     private void LoseGame()
     {
-        isGameOver = true;
+        currentState = GameState.Defeat;
+        Time.timeScale = 0f; 
+
+        defeatPanel.SetActive(true);
+        UpdateUI();
         Debug.Log("game over");
+    }
+
+    public void WinGame()
+    {
+        currentState = GameState.Victory;
+        Time.timeScale = 0f;
+
+        victoryPanel.SetActive(true);
+        UpdateUI();
+        Debug.Log("victory");
     }
 }
