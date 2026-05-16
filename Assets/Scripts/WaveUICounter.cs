@@ -19,6 +19,17 @@ public class WaveUICounter : MonoBehaviour
         if (Instance == null) Instance = this;
     }
 
+    private void Start()
+    {
+        SetTimelineActive(false);
+    }
+
+    public void SetTimelineActive(bool isActive)
+    {
+        spawningNowText.gameObject.SetActive(isActive);
+        comingNextText.gameObject.SetActive(isActive);
+    }
+
     public void UpdateTimeline(string currentName, int currentRemaining, EnemySpawnGroup next)
     {
         if (currentRemaining > 0)
@@ -30,11 +41,9 @@ public class WaveUICounter : MonoBehaviour
             spawningNowText.text = "Next Invaders on the Way:\nMore Alien Scum On the Way";
         }
 
-        if (next != null)
-        {
-            comingNextText.text = $"Spawning Next:\n{next.enemyType.enemyName} x {next.count}";
-        }
-        else
+        comingNextText.text = $"Spawning Next:\n{next.enemyType.enemyName} x {next.count}";
+
+        if (next == null)
         {
             comingNextText.text = "Spawning Next:\nPrepare for the next Invasion!";
         }

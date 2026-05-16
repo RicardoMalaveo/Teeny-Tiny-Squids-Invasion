@@ -21,6 +21,18 @@ public class WaveManager : MonoBehaviour
             Instance = this;
         }
     }
+
+    private void Start()
+    {
+        UpdatePrepUI();
+    }
+    private void UpdatePrepUI()
+    {
+        if (currentWaveIndex < levelsWaves.Count)
+        {
+            WaveUICounter.Instance.SetupTotalWaveComposition(levelsWaves[currentWaveIndex]);
+        }
+    }
     public float GetCurrentWaveDuration()
     {
         if (currentWaveIndex >= levelsWaves.Count) return 0;
@@ -57,6 +69,8 @@ public class WaveManager : MonoBehaviour
 
     private IEnumerator SpawnWaveRoutine(WaveData wave)
     {
+        WaveUICounter.Instance.SetTimelineActive(true);
+
         int totalInWave = 0;
         foreach (var group in wave.spawnGroups) totalInWave += group.count;
         activeEnemiesCount = totalInWave;
