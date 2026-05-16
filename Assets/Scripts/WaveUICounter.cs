@@ -23,11 +23,11 @@ public class WaveUICounter : MonoBehaviour
     {
         if (currentRemaining > 0)
         {
-            spawningNowText.text = $"Spawning Now:\n{currentName} x {currentRemaining}";
+            spawningNowText.text = $"Reaching the Shore:\n{currentName} x {currentRemaining}";
         }
         else
         {
-            spawningNowText.text = "Spawning Now:\nNext Enemy Wave In coming";
+            spawningNowText.text = "Next Invaders on the Way:\nMore Alien Scum On the Way";
         }
 
         if (next != null)
@@ -36,7 +36,7 @@ public class WaveUICounter : MonoBehaviour
         }
         else
         {
-            comingNextText.text = "Spawning Next:\nEnd of enemy wave";
+            comingNextText.text = "Spawning Next:\nPrepare for the next Invasion!";
         }
     }
 
@@ -78,12 +78,12 @@ public class WaveUICounter : MonoBehaviour
     {
         if (liveWaveEnemies.Count == 0)
         {
-            totalCompositionText.text = "All enemies have been defeated!";
+            totalCompositionText.text = "All Invaders have been defeated!";
             return;
         }
 
         StringBuilder sb = new StringBuilder();
-        sb.AppendLine("<b>Remaining Waves Threat Profile:</b>");
+        sb.AppendLine("<b>Total Invading Forces:</b>");
         var sortedEnemies = liveWaveEnemies.OrderBy(x => x.Key.dangerLevel);
 
         foreach (var kvp in sortedEnemies)
