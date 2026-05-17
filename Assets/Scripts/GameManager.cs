@@ -188,7 +188,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            tideStateText.text = "BAJA MAREA";
+            tideStateText.text = "MAREA BAJA";
             tideStateText.color = Color.cyan;
         }
     }
