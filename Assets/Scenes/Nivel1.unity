@@ -111815,7 +111815,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Usa \"B\" para entrar en modo construcci\xF3n\n\nPara vender todas las
     torres pulsa \"X\" en modo construcci\xF3n\n\nControles de c\xE1mara:\nW,A,S,D-Movimiento
-    en el mapa\nPulsa la ruda del rat\xF3n y mueve para rota."
+    en el mapa\nPulsa la ruda del rat\xF3n y mueve para rotar.\n\nPuedes ocultar
+    este texto en opciones"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d9f68876fb0feef418dc6521e2c8c7fa, type: 2}
   m_sharedMaterial: {fileID: -712411264426255165, guid: d9f68876fb0feef418dc6521e2c8c7fa, type: 2}
@@ -111842,11 +111843,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.5
+  m_fontSize: 16.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 1
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1

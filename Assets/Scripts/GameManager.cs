@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         }
         else if (currentState == GameState.Wave)
         {
-            timerText.text = "COMBAT";
+            timerText.text = "combate";
         }
     }
 
@@ -178,42 +178,42 @@ public class GameManager : MonoBehaviour
 
         if (upcomingWave.executeHighTide)
         {
-            tideStateText.text = "FLOODED BATTLEFIELD";
+            tideStateText.text = "CAMPO DE BATALLA INUNDADO";
             tideStateText.color = new Color(0.5f, 0f, 0.5f);
         }
         else if (upcomingWave.startTideWarning)
         {
-            tideStateText.text = "TIDE RISING";
+            tideStateText.text = "MAREA CRECIENTE";
             tideStateText.color = new Color(1f, 0.5f, 0f);
         }
         else
         {
-            tideStateText.text = "LOW TIDE";
+            tideStateText.text = "BAJA MAREA";
             tideStateText.color = Color.cyan;
         }
     }
     private void UpdateUI()
     {
-        sandText.text = "Sand: " + CurrentSand;
-        hpText.text = "Castle HP: "+ currentPlayerHP;
-        currentWave.text = "Enemy Wave: " + currentWaveNumber;
+        sandText.text = "Arena: " + CurrentSand;
+        hpText.text = "Vida del castillo: "+ currentPlayerHP;
+        currentWave.text = "Oleada Enemiga: " + currentWaveNumber;
 
         switch (currentState)
         {
             case GameState.Prep:
-                gameState.text = "PREPARING";
+                gameState.text = "Preparando Oleada";
                 gameState.color = Color.blue;
                 break;
             case GameState.Wave:
-                gameState.text = "ENEMY WAVE!";
+                gameState.text = "¡Oleada Enemiga!";
                 gameState.color = Color.red;
                 break;
             case GameState.Victory:
-                gameState.text = "VICTORY!";
+                gameState.text = "¡Victoria!";
                 gameState.color = Color.green;
                 break;
             case GameState.Defeat:
-                gameState.text = "DEFEAT!";
+                gameState.text = "¡Derrota!";
                 gameState.color = Color.black;
                 break;
         }
@@ -226,7 +226,7 @@ public class GameManager : MonoBehaviour
 
         defeatPanel.SetActive(true);
         UpdateUI();
-        Debug.Log("game over");
+        Debug.Log("Game Over");
     }
 
     public void WinGame()
@@ -236,6 +236,6 @@ public class GameManager : MonoBehaviour
 
         victoryPanel.SetActive(true);
         UpdateUI();
-        Debug.Log("victory");
+        Debug.Log("Victoria");
     }
 }
