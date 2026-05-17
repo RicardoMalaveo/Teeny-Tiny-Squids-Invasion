@@ -19,6 +19,11 @@ public class WaveData : ScriptableObject
     public float delayBetweenGroups;
     public float bonusPercentage;
 
+    public bool startTideWarning;
+
+    public bool executeHighTide;
+
+    [Range(0f, 1f)] public float floodIntensity;
     public float GetTotalWaveBudget()
     {
         float total = 0;

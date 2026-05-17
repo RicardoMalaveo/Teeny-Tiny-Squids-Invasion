@@ -3,13 +3,13 @@ using UnityEngine;
 public enum HexState
 {
     Active,     // la construccion esta habilitada
-    Disabled,   // la construccion no esta habilitada
-    Underwater  // para futura implementacion de la marea
+    Disabled   // la construccion no esta habilitad
 }
 public class HexCell : MonoBehaviour
 {
     public HexState state = HexState.Disabled;
-    [SerializeField] private bool isUnderSeaLevel;
+    public bool isUnderSeaLevel;
+    public bool underWater;
     public bool hasTower = false;
     public bool isHighlighted;
     public GameObject currentTower;
@@ -21,7 +21,9 @@ public class HexCell : MonoBehaviour
     public Color occupied;
     public Color selected;
     public Color disabled;
-    public Color underWater;
+    public Color underSeaLevel;
+    public Color occupiedWarning;
+    public Color underWaterColor;
 
     private void Awake()
     {
@@ -37,22 +39,41 @@ public class HexCell : MonoBehaviour
     public void ChangeHexCellColors()
     {
         Color targetColor;
-        if (state == HexState.Underwater)
+
+        if (state == HexState.Disabled)
         {
-            targetColor = underWater;
+            targetColor = disabled;
         }
-        else if (state == HexState.Active)
+        else if (state == HexState.Active || underWater)
         {
-            if (!hasTower)
+            if (underWater)
             {
-                targetColor = isHighlighted ? selected : active;
+                targetColor = underWaterColor;
+            }
+            else if (isUnderSeaLevel)
+            {
+                if (!hasTower)
+                {
+                    targetColor = isHighlighted ? selected : underSeaLevel;
+                }
+                else
+                {
+                    targetColor = occupiedWarning;
+                }
             }
             else
             {
-                targetColor = occupied;
+                if (!hasTower)
+                {
+                    targetColor = isHighlighted ? selected : active;
+                }
+                else
+                {
+                    targetColor = occupied;
+                }
             }
         }
-        else // Disabled
+        else
         {
             targetColor = disabled;
         }

@@ -43,7 +43,7 @@ public class CameraPivotMovement : MonoBehaviour
         forward.y = 0;
         right.y = 0;
 
-        Vector3 move = (forward.normalized * z + right.normalized * x) * cameraMovementSpeed * Time.deltaTime;
+        Vector3 move = (forward.normalized * z + right.normalized * x) * cameraMovementSpeed * Time.unscaledDeltaTime;
         transform.position += move;
 
         transform.position = new Vector3(
@@ -57,8 +57,8 @@ public class CameraPivotMovement : MonoBehaviour
     {
         if (Input.GetMouseButton(2) || Input.GetMouseButton(1))
         {
-            float mouseX = Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
-            float mouseY = -Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime;
+            float mouseX = Input.GetAxis("Mouse X") * rotationSpeed * Time.unscaledDeltaTime;
+            float mouseY = -Input.GetAxis("Mouse Y") * rotationSpeed * Time.unscaledDeltaTime;
 
             currentYAxis = Mathf.Clamp(currentYAxis + mouseX, -horizontalRotationLimit, horizontalRotationLimit);
             CurrentXAxis = Mathf.Clamp(CurrentXAxis + mouseY, minPitch, maxPitch);

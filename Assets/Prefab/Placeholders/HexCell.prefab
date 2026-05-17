@@ -876,6 +876,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HexCell
   state: 1
   isUnderSeaLevel: 0
+  underWater: 0
   hasTower: 0
   isHighlighted: 0
   currentTower: {fileID: 0}
@@ -883,7 +884,9 @@ MonoBehaviour:
   sprite1: {fileID: 537369282173572109}
   sprite2: {fileID: 6223880990251167898}
   active: {r: 0.46883842, g: 1, b: 0.1745283, a: 0.19607843}
-  occupied: {r: 1, g: 0, b: 0, a: 0.19607843}
-  selected: {r: 0, g: 0.3031702, b: 1, a: 0.19607843}
+  occupied: {r: 0.18539715, g: 0, b: 1, a: 0.19607843}
+  selected: {r: 0.83187747, g: 1, b: 0, a: 0.19607843}
   disabled: {r: 0, g: 0, b: 0, a: 0}
-  underWater: {r: 1, g: 0, b: 0.94432163, a: 1}
+  underSeaLevel: {r: 1, g: 0.76651764, b: 0.41037738, a: 0.3137255}
+  occupiedWarning: {r: 1, g: 0.3403335, b: 0, a: 0.5372549}
+  underWaterColor: {r: 0.48553276, g: 0, b: 1, a: 0.6509804}

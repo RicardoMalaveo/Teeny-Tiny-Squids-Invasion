@@ -24,7 +24,20 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
+        if (levelsWaves.Count > 0 && TideManager.Instance != null)
+        {
+            TideManager.Instance.ForecastNextWaveTide(levelsWaves[0]);
+            GameManager.Instance.UpdateTideStatusUI(GetCurrentWaveData());
+        }
         UpdatePrepUI();
+    }
+    public WaveData GetCurrentWaveData()
+    {
+        if (currentWaveIndex < levelsWaves.Count)
+        {
+            return levelsWaves[currentWaveIndex];
+        }
+        return null;
     }
     private void UpdatePrepUI()
     {
@@ -126,12 +139,26 @@ public class WaveManager : MonoBehaviour
         {
             WaveUICounter.Instance.SetTimelineActive(false);
             GameManager.Instance.WinGame();
+            return;
+        }
+
+        WaveData upcomingWave = GetCurrentWaveData();
+        GameManager.Instance.UpdateTideStatusUI(upcomingWave);
+        if (upcomingWave.executeHighTide)
+        {
+            TideManager.Instance.ExecuteImmediateFloodAndSell();
+        }
+        else if (upcomingWave.startTideWarning)
+        {
+            TideManager.Instance.ForecastNextWaveTide(upcomingWave);
         }
         else
         {
-            WaveUICounter.Instance.SetTimelineActive(false);
-            UpdatePrepUI();
-            GameManager.Instance.EnemyWaveOver();
+            TideManager.Instance.ForceResetEntireGrid();
         }
+
+        WaveUICounter.Instance.SetTimelineActive(false);
+        UpdatePrepUI();
+        GameManager.Instance.EnemyWaveOver();
     }
 }

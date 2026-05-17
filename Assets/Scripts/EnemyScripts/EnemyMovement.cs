@@ -49,6 +49,15 @@ public class EnemyMovement : MonoBehaviour
 
     private void RiseAndFly()
     {
+         Vector3 directionToTarget = castleTarget.position - transform.position;
+         directionToTarget.y = 0f;
+
+         if (directionToTarget != Vector3.zero)
+         {
+            Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
+         }
+
         if (currentFlightState == FlightState.Rising)
         {
             Vector3 targetHeight = new Vector3(transform.position.x, flightAltitude, transform.position.z);
@@ -63,6 +72,7 @@ public class EnemyMovement : MonoBehaviour
         {
             Vector3 targetPosition = new Vector3(castleTarget.position.x, flightAltitude, castleTarget.position.z);
             MovementToTarget(targetPosition);
+
             float distanceToCastle = Vector2.Distance(new Vector2(transform.position.x, transform.position.z),
                                                       new Vector2(targetPosition.x, targetPosition.z));
             if (distanceToCastle < 1.0f)

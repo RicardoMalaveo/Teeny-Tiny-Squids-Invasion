@@ -20,23 +20,8 @@ MonoBehaviour:
   - enemyType: {fileID: 11400000, guid: c76d7ab8136cf034c8d11b8fe2768ff8, type: 2}
     count: 5
     intervalBetweenEnemies: 3
-  - enemyType: {fileID: 11400000, guid: 4e502b2d9a4a12746a863ced6d2e8557, type: 2}
-    count: 35
-    intervalBetweenEnemies: 1
-  - enemyType: {fileID: 11400000, guid: c76d7ab8136cf034c8d11b8fe2768ff8, type: 2}
-    count: 5
-    intervalBetweenEnemies: 3
-  - enemyType: {fileID: 11400000, guid: 4e502b2d9a4a12746a863ced6d2e8557, type: 2}
-    count: 35
-    intervalBetweenEnemies: 1
-  - enemyType: {fileID: 11400000, guid: c76d7ab8136cf034c8d11b8fe2768ff8, type: 2}
-    count: 5
-    intervalBetweenEnemies: 3
-  - enemyType: {fileID: 11400000, guid: 4e502b2d9a4a12746a863ced6d2e8557, type: 2}
-    count: 35
-    intervalBetweenEnemies: 1
-  - enemyType: {fileID: 11400000, guid: c76d7ab8136cf034c8d11b8fe2768ff8, type: 2}
-    count: 5
-    intervalBetweenEnemies: 3
   delayBetweenGroups: 2
   bonusPercentage: 0.1
+  startTideWarning: 0
+  executeHighTide: 0
+  floodIntensity: 0

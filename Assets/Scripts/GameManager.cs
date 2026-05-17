@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI hpText;
     [SerializeField] private TextMeshProUGUI currentWave;
     [SerializeField] private TextMeshProUGUI gameState;
+    [SerializeField] private TextMeshProUGUI tideStateText;
 
     [SerializeField] private GameObject victoryPanel;
     [SerializeField] private GameObject defeatPanel;
@@ -64,12 +65,19 @@ public class GameManager : MonoBehaviour
     {
         if (currentState == GameState.Defeat || currentState == GameState.Victory || currentState == GameState.Paused) return;
 
-        currentCountdown -= Time.deltaTime;
-        UpdateTimerUI();
-
-        if (currentState == GameState.Prep && currentCountdown <= 0)
+        if (currentState == GameState.Prep)
         {
-            StartWave();
+            currentCountdown -= Time.deltaTime;
+            UpdateTimerUI();
+
+            if (currentCountdown <= 0)
+            {
+                StartWave();
+            }
+        }
+        else if (currentState == GameState.Wave)
+        {
+            timerText.text = "COMBAT";
         }
     }
 
@@ -83,7 +91,6 @@ public class GameManager : MonoBehaviour
     public void StartWave()
     {
         if (currentState == GameState.Wave) return;
-
         currentState = GameState.Wave;
         currentCountdown = WaveManager.Instance.GetCurrentWaveDuration();
         UpdateUI();
@@ -93,6 +100,7 @@ public class GameManager : MonoBehaviour
     public void EnemyWaveOver()
     {
         if (currentState == GameState.Defeat || currentState == GameState.Victory) return;
+        ChangeGameSpeed(1f);
         currentWaveNumber++;
         StartCountdown(timeBetweenWaves);
     }
@@ -164,6 +172,25 @@ public class GameManager : MonoBehaviour
         timeScalex1.SetActive(speed == 4f); 
         timeScalex2.SetActive(speed == 1f);
         timeScalex4.SetActive(speed == 2f);
+    }
+    public void UpdateTideStatusUI(WaveData upcomingWave)
+    {
+
+        if (upcomingWave.executeHighTide)
+        {
+            tideStateText.text = "FLOODED BATTLEFIELD";
+            tideStateText.color = new Color(0.5f, 0f, 0.5f);
+        }
+        else if (upcomingWave.startTideWarning)
+        {
+            tideStateText.text = "TIDE RISING";
+            tideStateText.color = new Color(1f, 0.5f, 0f);
+        }
+        else
+        {
+            tideStateText.text = "LOW TIDE";
+            tideStateText.color = Color.cyan;
+        }
     }
     private void UpdateUI()
     {

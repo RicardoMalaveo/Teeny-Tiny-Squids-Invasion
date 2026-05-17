@@ -32,7 +32,7 @@ public class CameraControl : MonoBehaviour
         camForward.Normalize();
         camRight.Normalize();
         Vector3 moveDirection = (camForward * vertical) + (camRight * horizontal);
-        transform.Translate(moveDirection * velocity * Time.deltaTime, Space.World);
+        transform.Translate(moveDirection * velocity * Time.unscaledDeltaTime, Space.World);
         bool seEstaMoviendo = Mathf.Abs(horizontal) > 0.1f || Mathf.Abs(vertical) > 0.1f;
 
         if (indicadorMovimiento != null)

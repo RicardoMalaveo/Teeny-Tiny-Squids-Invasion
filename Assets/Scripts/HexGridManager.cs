@@ -17,7 +17,7 @@ public class HexGridManager : MonoBehaviour
     [SerializeField] private LayerMask hexLayer;
     private HexCell lastHitHex;
     [SerializeField] private Transform hexGroup;
-    [SerializeField] private List<HexCell> hexGroupList = new ();
+    [SerializeField] public List<HexCell> hexGroupList = new ();
 
 
     public List<TowerData> towerLibrary;
@@ -115,7 +115,7 @@ public class HexGridManager : MonoBehaviour
         {
             if (hit.transform.TryGetComponent<HexCell>(out HexCell currentHex))
             {
-                if (currentHex.state == HexState.Active)
+                if (currentHex.state == HexState.Active || currentHex.underWater)
                 {
                     if (currentHex != lastHitHex)
                     {
@@ -175,6 +175,13 @@ public class HexGridManager : MonoBehaviour
         hexBuildMenuPanel.SetActive(false);
         hexChangeMenu.SetActive(false);
         attackRangeCircle.SetActive(false);
+
+        if (cell.underWater)
+        {
+            Debug.Log("under water");
+            return;
+        }
+
         GameObject activePanel = cell.hasTower ? hexChangeMenu : hexBuildMenuPanel;
         Vector3 screenPos = cell.transform.position + Vector3.up * floatingBuildingMenuHight;
         activePanel.transform.position = screenPos;
@@ -214,6 +221,11 @@ public class HexGridManager : MonoBehaviour
         float diameter = data.attackRange;
         attackRangeCircle.transform.localScale = new Vector3(diameter, diameter, 1f);
         attackRangeCircle.transform.position = new Vector3(lastHitHex.transform.position.x, attackRangeCircleElevation, lastHitHex.transform.position.z);
+    }
+
+    public void ForceClearHoverAndMenus()
+    {
+        ClearLastHex();
     }
 
     public void HideAttackRangeIndicator()
