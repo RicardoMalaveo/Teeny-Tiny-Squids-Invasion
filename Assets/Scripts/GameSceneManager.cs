@@ -33,6 +33,5 @@ public class GameSceneManager : MonoBehaviour
     {
         Debug.Log("Exiting game...");
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
     }
 }
