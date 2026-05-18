@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe3e70c0fa1cbac46b8bd65279beaa6f, type: 3}
-  m_Name: TowerData_TorreLigera
+  m_Name: TowerData_MortairTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  towerName: Ballista
-  towerPrefab: {fileID: 8506486729008473138, guid: c076799c906335148ae899db98cc09ae, type: 3}
-  previewTowerPrefab: {fileID: 8506486729008473138, guid: c076799c906335148ae899db98cc09ae, type: 3}
-  cost: 30
+  towerName: MortairTower
+  towerPrefab: {fileID: 7771961934584993497, guid: 7fccc4c4ce3bfba45824cde3dce7ea66, type: 3}
+  previewTowerPrefab: {fileID: 7771961934584993497, guid: 7fccc4c4ce3bfba45824cde3dce7ea66, type: 3}
+  cost: 28
   towerDamage: 2
-  fireRate: 1.8
-  attackRange: 13
+  fireRate: 2
+  attackRange: 15
   rotationSpeed: 10
-  projectilePrefab: {fileID: 7092026269231309156, guid: 1c40427f92d490944a71e49b9d052749, type: 3}
+  projectilePrefab: {fileID: 4694036705192010599, guid: a63fd73104deb234880b57f72478be0e, type: 3}

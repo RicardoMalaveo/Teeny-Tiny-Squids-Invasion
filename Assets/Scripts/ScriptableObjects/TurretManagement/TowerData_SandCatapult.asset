@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: TowerData_SandCatapult
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
   towerName: SandCatapult
-  towerPrefab: {fileID: 7675810906767332389, guid: 63f9ca55085db0a418366e987b7a81e2, type: 3}
-  previewTowerPrefab: {fileID: 7675810906767332389, guid: 63f9ca55085db0a418366e987b7a81e2, type: 3}
+  towerPrefab: {fileID: 4458226012400258792, guid: 61b67da614e932a4989bfe68147034c8, type: 3}
+  previewTowerPrefab: {fileID: 4458226012400258792, guid: 61b67da614e932a4989bfe68147034c8, type: 3}
   cost: 20
   towerDamage: 4
   fireRate: 1
-  attackRange: 12
+  attackRange: 11
   rotationSpeed: 10
   projectilePrefab: {fileID: 2437438681359900625, guid: d7acc1b097da37247862161cfcf11874, type: 3}

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3e70c0fa1cbac46b8bd65279beaa6f, type: 3}
   m_Name: TowerData_ArtilleryTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  towerName: ArtillerTower
-  towerPrefab: {fileID: 8615569394513121769, guid: f59ab161a7ee72a43a74a8c8d1b73872, type: 3}
-  previewTowerPrefab: {fileID: 8615569394513121769, guid: f59ab161a7ee72a43a74a8c8d1b73872, type: 3}
+  towerName: ArtilleryTower
+  towerPrefab: {fileID: 1661126044944223497, guid: d17503bc0ab5ad5478ce0b3425c56f0c, type: 3}
+  previewTowerPrefab: {fileID: 1661126044944223497, guid: d17503bc0ab5ad5478ce0b3425c56f0c, type: 3}
   cost: 30
   towerDamage: 10
   fireRate: 1
-  attackRange: 15
+  attackRange: 9
   rotationSpeed: 5
   projectilePrefab: {fileID: 4694036705192010599, guid: a63fd73104deb234880b57f72478be0e, type: 3}
