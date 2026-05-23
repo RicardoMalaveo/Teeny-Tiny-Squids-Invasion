@@ -6,6 +6,7 @@ public class EnemyDestinyHandler : MonoBehaviour
     private bool isDead = false;
     private float currentHealth;
     private Transform castleTarget;
+    public string EnemyDeathSoundName;
 
     private EnemyHPBar enemyHPBar;
 
@@ -51,7 +52,15 @@ public class EnemyDestinyHandler : MonoBehaviour
             GameManager.Instance.AddSand(data.dangerLevel);
         }
 
+        PlayEnemyDeathSound();
         WaveManager.Instance.DecrementEnemyCount(data);
         Destroy(gameObject);
+    }
+    void PlayEnemyDeathSound()
+    {
+        if (AudioController.Instance != null)
+        {
+            AudioController.Instance.PlaySFX(EnemyDeathSoundName);
+        }
     }
 }

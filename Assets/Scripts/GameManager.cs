@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     public GameState currentState;
     private GameState previousState;
 
+    public string VictorySoundName;
+    public string LoseGameSoundName;
+
     [SerializeField] private float totalPlayerHP;
     [SerializeField] private float currentPlayerHP;
     [SerializeField] private float initialPlayerSand;
@@ -222,8 +225,8 @@ public class GameManager : MonoBehaviour
     private void LoseGame()
     {
         currentState = GameState.Defeat;
-        Time.timeScale = 0f; 
-
+        Time.timeScale = 0f;
+        PlayLoseGameSound();
         defeatPanel.SetActive(true);
         UpdateUI();
         Debug.Log("Game Over");
@@ -233,9 +236,23 @@ public class GameManager : MonoBehaviour
     {
         currentState = GameState.Victory;
         Time.timeScale = 0f;
-
+        PlayVictorySound();
         victoryPanel.SetActive(true);
         UpdateUI();
         Debug.Log("Victoria");
+    }
+    void PlayVictorySound()
+    {
+        if (AudioController.Instance != null)
+        {
+            AudioController.Instance.PlaySFX(VictorySoundName);
+        }
+    }
+    void PlayLoseGameSound()
+    {
+        if (AudioController.Instance != null)
+        {
+            AudioController.Instance.PlaySFX(LoseGameSoundName);
+        }
     }
 }

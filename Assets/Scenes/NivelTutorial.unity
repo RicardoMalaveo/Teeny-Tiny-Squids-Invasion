@@ -24648,6 +24648,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   currentState: 0
+  VictorySoundName: VictorySound
+  LoseGameSoundName: GameOverSound
   totalPlayerHP: 40
   currentPlayerHP: 0
   initialPlayerSand: 40
@@ -139868,7 +139870,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1697595198
 RectTransform:
   m_ObjectHideFlags: 0

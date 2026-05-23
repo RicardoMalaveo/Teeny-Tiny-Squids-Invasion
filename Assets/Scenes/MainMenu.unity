@@ -4113,6 +4113,12 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: f89de1d073c2dde40a38cffd79418aba, type: 3}
   - name: ArtilleryTowerShootingSound
     clip: {fileID: 8300000, guid: b5b9093783689a8418a23f657dd0997a, type: 3}
+  - name: EnemyDeathSound
+    clip: {fileID: 8300000, guid: b9ea6cb603f0cf841bfe2c1127355c96, type: 3}
+  - name: VictorySound
+    clip: {fileID: 8300000, guid: 15e9513e147e26e44a42b09ac30acaae, type: 3}
+  - name: GameOverSound
+    clip: {fileID: 8300000, guid: 6866db493a864e7449f289c7acc73131, type: 3}
   UISounds:
   - name: ButtonClickSound
     clip: {fileID: 8300000, guid: fcfd98072a322534f96e8d8122e120b5, type: 3}

@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDestinyHandler
   data: {fileID: 11400000, guid: 4e502b2d9a4a12746a863ced6d2e8557, type: 2}
+  EnemyDeathSoundName: EnemyDeathSound
 --- !u!1001 &159662880586614987
 PrefabInstance:
   m_ObjectHideFlags: 0
