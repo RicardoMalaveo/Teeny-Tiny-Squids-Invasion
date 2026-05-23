@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonClickSound : MonoBehaviour
+public class PlayButtonSound : MonoBehaviour
 {
     [SerializeField] private string soundName;
     [SerializeField] bool isUISound = true;
