@@ -1,10 +1,13 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
     public static AudioController Instance;
 
+    private Dictionary<string, float> sfxCooldowns = new Dictionary<string, float>();
+    public float sfxCooldownTime = 0.05f;
     public Sound[] musicSounds, SFXSounds, UISounds;
     public AudioSource musicSource, SFXSource, UISource;
     private void Awake()
@@ -42,7 +45,14 @@ public class AudioController : MonoBehaviour
     }
     public void PlaySFX(string name)
     {
-        Sound s = Array.Find(SFXSounds, x => x.name == name);
+        if (sfxCooldowns.TryGetValue(name, out float lastTimePlayed))
+        {
+            if (Time.unscaledTime - lastTimePlayed < sfxCooldownTime)
+            {
+                return;
+            }
+        }
+            Sound s = Array.Find(SFXSounds, x => x.name == name);
         if (s == null)
         {
             Debug.LogWarning("Sound: " + name + " not found!");
@@ -50,6 +60,7 @@ public class AudioController : MonoBehaviour
         else
         {
             SFXSource.PlayOneShot(s.clip);
+            sfxCooldowns[name] = Time.unscaledTime;
         }
 
     }

@@ -1992,13 +1992,13 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 54
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -4097,6 +4097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd444846accd5e34da160370300fd0cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioController
+  sfxCooldownTime: 0.05
   musicSounds:
   - name: PlaceHolder
     clip: {fileID: 8300000, guid: b9ea7f7f7359c5746ab072d13e6ec24e, type: 3}
@@ -6589,7 +6590,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -7258,7 +7259,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
