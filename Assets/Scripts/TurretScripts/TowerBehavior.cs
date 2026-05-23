@@ -11,6 +11,7 @@ public class TowerBehavior : MonoBehaviour
     public Transform headOfTurret;
     public Transform bulletSpawn;
     private float fireCountDown = 0f;
+    public string shootSoundName;
 
     private void Start()
     {
@@ -63,6 +64,7 @@ public class TowerBehavior : MonoBehaviour
         if (fireCountDown <= 0f)
         {
             Shoot();
+            PlaySound();
             fireCountDown = 1f / towerData.fireRate;
         }
         fireCountDown -= Time.deltaTime;
@@ -99,5 +101,13 @@ public class TowerBehavior : MonoBehaviour
     {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, towerData.attackRange);
+    }
+
+    void PlaySound()
+    {
+        if (AudioController.Instance != null)
+        {
+            AudioController.Instance.PlaySFX(shootSoundName);
+        }
     }
 }

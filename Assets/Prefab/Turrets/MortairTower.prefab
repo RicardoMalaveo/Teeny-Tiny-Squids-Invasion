@@ -81,6 +81,7 @@ MonoBehaviour:
   towerData: {fileID: 11400000, guid: ded8205b2ec6046429f40b356f1d93ef, type: 2}
   headOfTurret: {fileID: 4060667456274364092}
   bulletSpawn: {fileID: 740610531878158979}
+  shootSoundName: MortairTowerShootingSound
 --- !u!65 &8565556140375682187
 BoxCollider:
   m_ObjectHideFlags: 0

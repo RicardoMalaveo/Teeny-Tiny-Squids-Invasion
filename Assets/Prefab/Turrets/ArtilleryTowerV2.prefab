@@ -151,6 +151,7 @@ MonoBehaviour:
   towerData: {fileID: 11400000, guid: fffd98c759124214d97bfb0b61a93182, type: 2}
   headOfTurret: {fileID: 4102053372005176631}
   bulletSpawn: {fileID: 1912780930772163653}
+  shootSoundName: ArtilleryTowerShootingSound
 --- !u!1 &3721868173574639501
 GameObject:
   m_ObjectHideFlags: 0

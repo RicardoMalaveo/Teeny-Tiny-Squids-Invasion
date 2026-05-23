@@ -4104,7 +4104,15 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 77887d50edb395847ac1c2baff06681e, type: 3}
   - name: Level1Music
     clip: {fileID: 8300000, guid: 0506397fa4756274995cf4634441779e, type: 3}
-  SFXSounds: []
+  SFXSounds:
+  - name: BasicTowerShootingSound
+    clip: {fileID: 8300000, guid: 6088a199f4c0371428ad832e733d1579, type: 3}
+  - name: FastTowerShootingSound
+    clip: {fileID: 8300000, guid: 5aeb83c32a816a448a156b255d69a6c6, type: 3}
+  - name: MortairTowerShootingSound
+    clip: {fileID: 8300000, guid: f89de1d073c2dde40a38cffd79418aba, type: 3}
+  - name: ArtilleryTowerShootingSound
+    clip: {fileID: 8300000, guid: b5b9093783689a8418a23f657dd0997a, type: 3}
   UISounds:
   - name: ButtonClickSound
     clip: {fileID: 8300000, guid: fcfd98072a322534f96e8d8122e120b5, type: 3}

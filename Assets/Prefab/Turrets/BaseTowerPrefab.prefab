@@ -50,6 +50,7 @@ MonoBehaviour:
   towerData: {fileID: 11400000, guid: fbc626a8fff74ca43ba542a7c4b4e087, type: 2}
   headOfTurret: {fileID: 1338242551108649297}
   bulletSpawn: {fileID: 7185181377286935055}
+  shootSoundName: BasicTowerShootingSound
 --- !u!135 &1026295179381635512
 SphereCollider:
   m_ObjectHideFlags: 0
