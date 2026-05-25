@@ -24652,7 +24652,7 @@ MonoBehaviour:
   LoseGameSoundName: GameOverSound
   totalPlayerHP: 40
   currentPlayerHP: 0
-  initialPlayerSand: 40
+  initialPlayerSand: 75
   refundPercentage: 0.5
   initialPrepTime: 30
   timeBetweenWaves: 10

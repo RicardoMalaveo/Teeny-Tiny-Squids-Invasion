@@ -15,7 +15,7 @@ MonoBehaviour:
   towerName: ArtilleryTower
   towerPrefab: {fileID: 1661126044944223497, guid: d17503bc0ab5ad5478ce0b3425c56f0c, type: 3}
   previewTowerPrefab: {fileID: 1661126044944223497, guid: d17503bc0ab5ad5478ce0b3425c56f0c, type: 3}
-  cost: 30
+  cost: 54
   towerDamage: 10
   fireRate: 1
   attackRange: 9

@@ -15,7 +15,7 @@ MonoBehaviour:
   towerName: SandCatapult
   towerPrefab: {fileID: 4458226012400258792, guid: 61b67da614e932a4989bfe68147034c8, type: 3}
   previewTowerPrefab: {fileID: 4458226012400258792, guid: 61b67da614e932a4989bfe68147034c8, type: 3}
-  cost: 20
+  cost: 30
   towerDamage: 4
   fireRate: 1
   attackRange: 11

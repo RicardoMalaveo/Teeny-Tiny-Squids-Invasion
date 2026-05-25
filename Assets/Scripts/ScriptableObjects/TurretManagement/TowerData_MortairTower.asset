@@ -15,7 +15,7 @@ MonoBehaviour:
   towerName: MortairTower
   towerPrefab: {fileID: 7771961934584993497, guid: 7fccc4c4ce3bfba45824cde3dce7ea66, type: 3}
   previewTowerPrefab: {fileID: 7771961934584993497, guid: 7fccc4c4ce3bfba45824cde3dce7ea66, type: 3}
-  cost: 28
+  cost: 42
   towerDamage: 2
   fireRate: 2
   attackRange: 15

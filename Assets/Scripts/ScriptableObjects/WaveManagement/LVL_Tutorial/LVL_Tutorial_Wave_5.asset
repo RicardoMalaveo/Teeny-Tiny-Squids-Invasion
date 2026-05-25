@@ -10,15 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d82c3ab160721043a11d7f91b934428, type: 3}
-  m_Name: Wave_3
+  m_Name: LVL_Tutorial_Wave_5
   m_EditorClassIdentifier: Assembly-CSharp::WaveData
-  waveNumber: 3
+  waveNumber: 5
   spawnGroups:
   - enemyType: {fileID: 11400000, guid: 4e502b2d9a4a12746a863ced6d2e8557, type: 2}
-    count: 70
-    intervalBetweenEnemies: 1
+    count: 120
+    intervalBetweenEnemies: 0.5
+  - enemyType: {fileID: 11400000, guid: c76d7ab8136cf034c8d11b8fe2768ff8, type: 2}
+    count: 10
+    intervalBetweenEnemies: 0.3
   delayBetweenGroups: 2
-  bonusPercentage: 0.1
+  bonusPercentage: 0
   startTideWarning: 0
-  executeHighTide: 1
+  executeHighTide: 0
   floodIntensity: 0
