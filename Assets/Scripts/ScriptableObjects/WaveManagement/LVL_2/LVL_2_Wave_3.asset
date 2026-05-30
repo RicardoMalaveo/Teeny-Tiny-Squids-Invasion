@@ -18,10 +18,13 @@ MonoBehaviour:
     count: 60
     intervalBetweenEnemies: 0.5
   - enemyType: {fileID: 11400000, guid: 0e21c38a3562c8646bc7f27852d6140f, type: 2}
-    count: 15
+    count: 30
+    intervalBetweenEnemies: 0.5
+  - enemyType: {fileID: 11400000, guid: 0e21c38a3562c8646bc7f27852d6140f, type: 2}
+    count: 30
     intervalBetweenEnemies: 0.5
   delayBetweenGroups: 2
   bonusPercentage: 0
   startTideWarning: 0
-  executeHighTide: 1
+  executeHighTide: 0
   floodIntensity: 0
