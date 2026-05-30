@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d82c3ab160721043a11d7f91b934428, type: 3}
+  m_Name: LVL_2_Wave_3
+  m_EditorClassIdentifier: Assembly-CSharp::WaveData
+  waveNumber: 3
+  spawnGroups:
+  - enemyType: {fileID: 11400000, guid: c76d7ab8136cf034c8d11b8fe2768ff8, type: 2}
+    count: 60
+    intervalBetweenEnemies: 0.5
+  - enemyType: {fileID: 11400000, guid: 0e21c38a3562c8646bc7f27852d6140f, type: 2}
+    count: 15
+    intervalBetweenEnemies: 0.5
+  delayBetweenGroups: 2
+  bonusPercentage: 0
+  startTideWarning: 0
+  executeHighTide: 1
+  floodIntensity: 0

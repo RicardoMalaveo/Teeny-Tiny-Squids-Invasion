@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyInfo
   enemyName: Meduglobo
   enemyPrefab: {fileID: 2458591324602359509, guid: f0aba0ded67e77f47a56e41222834ead, type: 3}
-  maxHealth: 25
+  maxHealth: 50
   moveSpeed: 2
   dangerLevel: 5
   isAerial: 1
