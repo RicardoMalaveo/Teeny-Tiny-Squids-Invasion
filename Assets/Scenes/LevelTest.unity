@@ -76328,6 +76328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HexGridManager
   uiCamera: {fileID: 1525317280}
   floatingBuildingMenuHight: 0.25
+  towerSpawnYAxis: 0
   hexBuildMenuPanel: {fileID: 1390222163}
   hexChangeMenu: {fileID: 1825991136}
   attackRangeCircle: {fileID: 0}

@@ -13,7 +13,6 @@ public class HexGridManager : MonoBehaviour
     [SerializeField] private GameObject attackRangeCircle;
     [SerializeField] private float attackRangeCircleElevation;
 
-
     public static HexGridManager Instance;
     [SerializeField] private LayerMask hexLayer;
     private HexCell lastHitHex;
@@ -252,5 +251,15 @@ public class HexGridManager : MonoBehaviour
             SellTower(lastHitHex);
             ClearLastHex();
         }
+    }
+
+    public void DescriptionPanel(GameObject UIPanel)
+    {
+        UIPanel.SetActive(true);
+    }
+
+    public void HideDescriptionPanel(GameObject UIPanel)
+    {
+        UIPanel.SetActive(false);
     }
 }
