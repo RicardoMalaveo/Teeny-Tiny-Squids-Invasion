@@ -433,8 +433,6 @@ MonoBehaviour:
   - {fileID: 813045097}
   airSpawnPoints:
   - {fileID: 59715681}
-  - {fileID: 59715681}
-  - {fileID: 59715681}
   castleTarget: {fileID: 688979379}
 --- !u!43 &27409420
 Mesh:
@@ -2504,7 +2502,7 @@ Transform:
   m_GameObject: {fileID: 59715680}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.51, y: 0.5, z: -50.27}
+  m_LocalPosition: {x: 34.57, y: 0.5, z: -44.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -52379,7 +52377,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 813045093}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -128923,6 +128921,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HexGridManager
   uiCamera: {fileID: 2088940409}
   floatingBuildingMenuHight: 0.25
+  towerSpawnYAxis: 0
   hexBuildMenuPanel: {fileID: 1342452061}
   hexChangeMenu: {fileID: 463806778}
   attackRangeCircle: {fileID: 1744764734}

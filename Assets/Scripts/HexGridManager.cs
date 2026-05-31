@@ -7,6 +7,7 @@ public class HexGridManager : MonoBehaviour
 {
     public Camera uiCamera;
     [SerializeField] private float floatingBuildingMenuHight;
+    [SerializeField] private float towerSpawnYAxis;
     [SerializeField] private GameObject hexBuildMenuPanel;
     [SerializeField] private GameObject hexChangeMenu;
     [SerializeField] private GameObject attackRangeCircle;
@@ -72,6 +73,7 @@ public class HexGridManager : MonoBehaviour
         hexCell.currentTowerData = data;
 
         Vector3 spawnPos = hexCell.transform.position;
+        spawnPos.y += towerSpawnYAxis;
         hexCell.currentTower = Instantiate(data.towerPrefab, spawnPos, Quaternion.identity);
 
         hexCell.ChangeHexCellColors();

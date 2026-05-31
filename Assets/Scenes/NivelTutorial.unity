@@ -2210,7 +2210,7 @@ PrefabInstance:
       objectReference: {fileID: 1257628289}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -2227,7 +2227,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1987549168}
+      objectReference: {fileID: 1257628289}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4173,6 +4173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HexGridManager
   uiCamera: {fileID: 1525317280}
   floatingBuildingMenuHight: 0.25
+  towerSpawnYAxis: 0
   hexBuildMenuPanel: {fileID: 1431374947}
   hexChangeMenu: {fileID: 1680890384}
   attackRangeCircle: {fileID: 1744764734}
@@ -10206,7 +10207,7 @@ PrefabInstance:
       objectReference: {fileID: 487403149}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -10223,7 +10224,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1772220833}
+      objectReference: {fileID: 487403149}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18417,7 +18418,7 @@ PrefabInstance:
       objectReference: {fileID: 1987549168}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -18434,7 +18435,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 326337109}
+      objectReference: {fileID: 1987549168}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21328,7 +21329,7 @@ PrefabInstance:
       objectReference: {fileID: 741843060}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -21345,7 +21346,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1596456911}
+      objectReference: {fileID: 741843060}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33765,7 +33766,7 @@ PrefabInstance:
       objectReference: {fileID: 1472620593}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -33782,7 +33783,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1869616445}
+      objectReference: {fileID: 1472620593}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -44578,7 +44579,7 @@ PrefabInstance:
       objectReference: {fileID: 937709112}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -44595,7 +44596,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 937709112}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -51579,7 +51580,7 @@ PrefabInstance:
       objectReference: {fileID: 1921569776}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -51596,7 +51597,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1921569776}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -54170,7 +54171,7 @@ PrefabInstance:
       objectReference: {fileID: 2042014686}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -54187,7 +54188,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2042014686}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -57636,7 +57637,7 @@ PrefabInstance:
       objectReference: {fileID: 596638861}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -57653,7 +57654,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 596638861}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -75565,7 +75566,7 @@ PrefabInstance:
       objectReference: {fileID: 1869616445}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -75582,7 +75583,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 741843060}
+      objectReference: {fileID: 1869616445}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -77950,7 +77951,7 @@ PrefabInstance:
       objectReference: {fileID: 269316325}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -77967,7 +77968,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1828363932}
+      objectReference: {fileID: 269316325}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -89418,7 +89419,7 @@ PrefabInstance:
       objectReference: {fileID: 750727758}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -89435,7 +89436,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 750727758}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -105158,7 +105159,7 @@ PrefabInstance:
       objectReference: {fileID: 72292494}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -105175,7 +105176,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1490669860}
+      objectReference: {fileID: 72292494}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -108958,7 +108959,7 @@ PrefabInstance:
       objectReference: {fileID: 1596456911}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -119261,7 +119262,7 @@ PrefabInstance:
       objectReference: {fileID: 1828363932}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -119278,7 +119279,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 2042014686}
+      objectReference: {fileID: 1828363932}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -137263,7 +137264,7 @@ PrefabInstance:
       objectReference: {fileID: 260201731}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -137280,7 +137281,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1257628289}
+      objectReference: {fileID: 260201731}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -138888,7 +138889,7 @@ PrefabInstance:
       objectReference: {fileID: 1620248183}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -138905,7 +138906,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1596456911}
+      objectReference: {fileID: 1620248183}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -139318,7 +139319,7 @@ PrefabInstance:
       objectReference: {fileID: 1490669860}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -139335,7 +139336,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1596456911}
+      objectReference: {fileID: 1490669860}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -140158,7 +140159,7 @@ PrefabInstance:
       objectReference: {fileID: 1056494612}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -140175,7 +140176,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1056494612}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -141557,7 +141558,7 @@ PrefabInstance:
       objectReference: {fileID: 1809034331}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -141574,7 +141575,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1809034331}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -147137,7 +147138,7 @@ PrefabInstance:
       objectReference: {fileID: 326337109}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -147154,7 +147155,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 326337109}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -165252,7 +165253,7 @@ PrefabInstance:
       objectReference: {fileID: 290390961}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -165269,7 +165270,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 72292494}
+      objectReference: {fileID: 290390961}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -168473,7 +168474,7 @@ PrefabInstance:
       objectReference: {fileID: 1772220833}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -168490,7 +168491,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 260201731}
+      objectReference: {fileID: 1772220833}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -182157,7 +182158,7 @@ PrefabInstance:
       objectReference: {fileID: 2103871267}
     - target: {fileID: 3230957967435903332, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_VersionIndex
-      value: 3149
+      value: 3152
       objectReference: {fileID: 0}
     - target: {fileID: 4333242329513977549, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: hasTower
@@ -182174,7 +182175,7 @@ PrefabInstance:
     - target: {fileID: 8768606808714830067, guid: b5a27920a1cff594ab9238a6f19556ea, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 937709112}
+      objectReference: {fileID: 2103871267}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
