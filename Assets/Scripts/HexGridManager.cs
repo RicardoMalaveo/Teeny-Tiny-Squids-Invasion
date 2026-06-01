@@ -219,8 +219,8 @@ public class HexGridManager : MonoBehaviour
     {
         attackRangeCircle.SetActive(true);
         attackRangeCircle.transform.localScale = Vector3.one;
-        float diameter = data.attackRange;
-        attackRangeCircle.transform.localScale = new Vector3(diameter, diameter, 1f);
+        float diameter = data.attackRange * 2;
+        attackRangeCircle.transform.localScale = new Vector3(diameter,diameter, 1f);
         attackRangeCircle.transform.position = new Vector3(lastHitHex.transform.position.x, attackRangeCircleElevation, lastHitHex.transform.position.z);
     }
 
