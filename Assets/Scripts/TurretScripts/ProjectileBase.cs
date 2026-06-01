@@ -3,10 +3,10 @@ using UnityEngine;
 public abstract class ProjectileBase : MonoBehaviour
 {
     protected Transform target;
-    protected int damage;
+    protected float damage;
     [SerializeField] protected float speed = 20f;
 
-    public virtual void Setup(Transform _target, int _damage)
+    public virtual void Setup(Transform _target, float _damage)
     {
         target = _target;
         damage = _damage;

@@ -17,7 +17,7 @@ MonoBehaviour:
   previewTowerPrefab: {fileID: 7771961934584993497, guid: 7fccc4c4ce3bfba45824cde3dce7ea66, type: 3}
   cost: 42
   towerDamage: 3
-  fireRate: 0.5
+  fireRate: 0.8
   attackRange: 19
   rotationSpeed: 10
   projectilePrefab: {fileID: 4694036705192010599, guid: a63fd73104deb234880b57f72478be0e, type: 3}

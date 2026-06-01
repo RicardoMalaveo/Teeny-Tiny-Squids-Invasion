@@ -8,7 +8,7 @@ public class CatapultBullet : ProjectileBase
     protected Vector3 targetLandingPoint;
     protected float progress;
 
-    public override void Setup(Transform _target, int _damage)
+    public override void Setup(Transform _target, float _damage)
     {
         base.Setup(_target, _damage);
         startPosition = transform.position;
